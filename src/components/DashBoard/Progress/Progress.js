@@ -5,9 +5,8 @@ import { Box, Stack } from '@mui/material';
 
 
 export default function Progress({ title, image, slogan, sloganColor,  percentage, text }) {
-console.log(image);
   return (
-    <Card elevation={4}>
+    <Card sx={{ borderRadius: '12px' }}>
       <Stack paddingX={'24px'} paddingY={'14px'}>
         <Box sx={{ display: 'flex', justifyContent: 'start'  }}>
           <Typography fontWeight={700} fontSize={16}>{title}</Typography>

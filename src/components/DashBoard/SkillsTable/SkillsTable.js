@@ -22,7 +22,7 @@ const rows = [
 
 export default function SkillsTable() {
   return (
-    <TableContainer component={Paper} sx={{ py: 2 }}>
+    <TableContainer component={Paper} sx={{ py: 2, borderRadius: '10px' }}>
       <Table sx={{ minWidth: 610 }} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -32,9 +32,9 @@ export default function SkillsTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {rows.map((row, index) => (
             <TableRow 
-              key={row.name}
+              key={index}
               sx={{ "& td": { border: 0 } }}
             >
               <TableCell component="th" scope="row" sx={{ fontSize: 12, fontWeight: 400, borderBottom:"none", py: 0 }}>

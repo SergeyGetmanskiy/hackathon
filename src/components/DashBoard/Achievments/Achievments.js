@@ -8,7 +8,7 @@ import logo from './icons/logo-achievments.svg'
 export default function Achievments() {
 
   return (
-    <Card elevation={4} >
+    <Card elevation={4} sx={{ borderRadius: '10px' }} >
       <Stack direction={'row'} padding={2.4} height={100} >
         <Stack>
           <Typography gutterBottom variant="body1" component="div" fontSize={20} fontWeight={500} >

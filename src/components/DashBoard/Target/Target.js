@@ -8,7 +8,7 @@ import arrow from './icons/arrow.svg'
 export default function Target() {
 
   return (
-    <Card elevation={4}>
+    <Card elevation={4} sx={{ borderRadius: '10px' }}>
       <Stack direction={'row'} padding={3} height={100}>
         <Stack>
           <Typography variant="body2" color="text.secondary" fontSize={14} fontWeight={500} >

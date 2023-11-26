@@ -7,11 +7,12 @@ import Target from './Target/Target';
 import Result from './Result/Result';
 import SkillsTable from './SkillsTable/SkillsTable';
 import Progress from './Progress/Progress';
+import Recommendations from './Recommendations/Recommendations';
 
-import { skills, progress } from '../../constants/constants';
+import { skills, progress, recommendations } from '../../constants/constants';
 
 const { title, image, slogan, sloganColor, percentage, text  } = progress;
-
+ 
 export function DashBoard() {
   return (
     <Stack useFlexGap spacing={'20px'} direction={'row'} sx={{ backgroundColor: '#F8F8F8' }}>
@@ -33,8 +34,9 @@ export function DashBoard() {
           </Grid>
         </Grid>       
       </Box>
-      <Box width={400}>
+      <Box width={400} sx={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
         <Progress title={title} image={image} slogan={slogan} sloganColor={sloganColor} percentage={percentage} text={text} />
+        <Recommendations recommendations={recommendations} />
       </Box>
     </Stack>
   )

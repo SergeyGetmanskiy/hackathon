@@ -6,7 +6,7 @@ import { Stack } from '@mui/material';
 export default function Result({result, text, textColor}) {
 
   return (
-    <Card elevation={4}>
+    <Card elevation={4} sx={{ borderRadius: '10px' }}>
       <Stack direction={'row'} padding={2.4} height={90}>
         <Stack>
           <Typography gutterBottom variant="h4" component="h4" fontSize={28} color={textColor}>
