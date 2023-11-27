@@ -1,23 +1,31 @@
-import progressImage from '../images/progress.png'
-import book from '../images/book 2.png'
-import headPhones from '../images/headphones 2.svg'
-import edit from '../images/edit-2.svg'
+import progressImage from '../images/Dashboard/progress.png'
+import book from '../images/Dashboard/book 2.png'
+import headPhones from '../images/Dashboard/headphones 2.svg'
+import edit from '../images/Dashboard/edit-2.svg'
+
+import logo from '../images/SideMenu/logo.svg'
+import bookOpen from '../images/SideMenu/book-open.svg'
+import briefcase from '../images/SideMenu/briefcase.svg'
+import graduation from '../images/SideMenu/graduation.svg'
+import home from '../images/SideMenu/home.svg'
+import skillsImage from '../images/SideMenu/skills.svg'
+
 
 export const skills = [
   {
     result: 45,
     text: 'Новых навыков изучено',
-    textColor: '#46866B',
+    textColor: 'green.dark',
   },
   {
     result: 60,
-    text: 'Часов проведено за изучением',
-    textColor: '#FFB152',
+    text: 'Часов за изучением',
+    textColor: 'orange.main',
   },
   {
     result: 12,
-    text: 'Новых хард скиллов прокаченно',
-    textColor: '#7F67D2',
+    text: 'Хард скиллов прокаченно',
+    textColor: 'purple.main',
   },
 ];
 
@@ -47,3 +55,30 @@ export const recommendations = [
     text: 'Напиши статью на Medium',
   }  
 ]
+
+export const sideMenuLogo = logo;
+
+export const sideMenuItems = [
+  {
+    icon: home,
+    title: 'Главная',
+  },
+  {
+    icon: bookOpen,
+    title: 'Дневник',
+  },
+  {
+    icon: skillsImage,
+    title: 'Навыки',
+  },
+  {
+    icon: briefcase,
+    title: 'Вакансии',
+  },
+  {
+    icon: graduation,
+    title: 'Мастерская',
+  }    
+]
+
+

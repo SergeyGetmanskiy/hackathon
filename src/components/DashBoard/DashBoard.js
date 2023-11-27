@@ -15,7 +15,7 @@ const { title, image, slogan, sloganColor, percentage, text  } = progress;
  
 export function DashBoard() {
   return (
-    <Stack useFlexGap spacing={'20px'} direction={'row'} sx={{ backgroundColor: '#F8F8F8' }}>
+    <Stack useFlexGap spacing={'20px'} direction={'row'} sx={{ backgroundColor: 'grey.main', p: '20px' }}>
       <Box width={610}>
         <Grid container columnSpacing={2} rowSpacing={2}>
           <Grid item  xs={6}>

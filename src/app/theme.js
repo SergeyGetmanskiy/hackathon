@@ -16,9 +16,18 @@ const theme = createTheme({
       light: 'rgba(241, 246, 255, 1)',
       dark: 'rgba(29, 107, 243, 1)',
     },
+    black: {
+      main: 'rgba(26, 27, 34, 1)',
+      light: 'rgba(181, 181, 183, 1)',
+      black500: 'rgba(121, 121, 129, 1)',
+    },
+    grey: {
+      main: 'rgba(248, 248, 248, 1)',
+    },
     green: {
       main: 'rgba(135, 204, 158, 1)',
       light: 'rgba(194, 229, 206, 1)',
+      dark: 'rgba(70, 134, 107, 1)',
     },
     purple: {
       main: 'rgba(127, 103, 210, 1)',
@@ -200,6 +209,24 @@ const theme = createTheme({
             fontWeight: 500,
             fontSize: 14,
             lineHeight: 20/14,
+          },
+        },
+        {
+          props: { variant: 'body3-regular' },
+          style: {
+            fontFamily: 'YS Display',
+            fontWeight: 400,
+            fontSize: 12,
+            lineHeight: 14/12,
+          },
+        },
+        {
+          props: { variant: 'body3-medium' },
+          style: {
+            fontFamily: 'YS Display',
+            fontWeight: 500,
+            fontSize: 12,
+            lineHeight: 14/12,
           },
         },
         {

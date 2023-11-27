@@ -7,12 +7,12 @@ export default function Result({result, text, textColor}) {
 
   return (
     <Card elevation={4} sx={{ borderRadius: '10px' }}>
-      <Stack direction={'row'} padding={2.4} height={90}>
+      <Stack direction={'row'} padding={2.4} sx={{ display: 'flex'}}>
         <Stack>
-          <Typography gutterBottom variant="h4" component="h4" fontSize={28} color={textColor}>
+          <Typography gutterBottom variant="h2-medium" color={textColor}>
             {result}
           </Typography>
-          <Typography variant="body2" fontSize={10} color={'#757575'} height={30}>
+          <Typography variant="caption2-regular" color={'black.black500'}>
             {text}
           </Typography>
         </Stack>

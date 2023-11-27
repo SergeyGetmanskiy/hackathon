@@ -2,7 +2,7 @@ import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import { Stack } from '@mui/material';
 
-import logo from './icons/logo-achievments.svg'
+import logo from '../../../images/Dashboard/Achievments/logo-achievments.svg'
 
 
 export default function Achievments() {
@@ -11,10 +11,10 @@ export default function Achievments() {
     <Card elevation={4} sx={{ borderRadius: '10px' }} >
       <Stack direction={'row'} padding={2.4} height={100} >
         <Stack>
-          <Typography gutterBottom variant="h3-medium" component="div">
+          <Typography gutterBottom variant="body1-medium" component="div">
             Достижения
           </Typography>
-          <Typography variant="caption2-regular" color="text.secondary">
+          <Typography variant="body3-regular">
             За прошлую неделю ты хорошо прокачал навыки, так держать!
           </Typography>
         </Stack>
