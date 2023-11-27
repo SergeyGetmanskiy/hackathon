@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import theme from './app/theme';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 
+console.log(theme);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

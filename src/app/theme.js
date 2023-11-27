@@ -10,6 +10,51 @@ const theme = createTheme({
   typography: {
     fontFamily: 'YS Display, YS Text, Arial',
   },
+  palette: {
+    primary: {
+      main: 'rgba(90, 155, 255, 1)',
+      light: 'rgba(241, 246, 255, 1)',
+      dark: 'rgba(29, 107, 243, 1)',
+    },
+    green: {
+      main: 'rgba(135, 204, 158, 1)',
+      light: 'rgba(194, 229, 206, 1)',
+    },
+    purple: {
+      main: 'rgba(127, 103, 210, 1)',
+      light: 'rgba(204, 194, 237, 1)',
+    },
+    orange: {
+      main: 'rgba(255, 206, 146, 1)',
+      light: 'rgba(255, 225, 189, 1)',
+    },
+    rose: {
+      main: 'rgba(255, 221, 229, 1)',
+    },
+    yellow: {
+      main: 'rgba(255, 249, 211, 1)',
+    },
+    pink: {
+      main: 'rgba(255, 191, 253, 0.87)',
+    },
+    brown: {
+      main: 'rgba(169, 145, 117, 0.26',
+    },
+    blue: {
+      light: 'rgba(172, 204, 255, 1)',
+    },
+    error: {
+      main: 'rgba(255, 2, 0, 1)',
+    },
+    text: {
+      primary: 'rgba(26, 27, 34, 1)',
+      secondary: 'rgba(121, 121, 129, 1)',
+      disabled: 'rgba(181, 181, 183, 1)',
+    },
+    action: {
+      disabled: 'rgba(221, 224, 228, 1)',
+    },
+  },
   components: {
     MuiCssBaseline: {
       styleOverrides: `
@@ -47,7 +92,156 @@ const theme = createTheme({
         }
       `,
     },
+    MuiTypography: {
+      variants: [
+        {
+          props: { variant: 'h1-regular' },
+          style: {
+            fontFamily: 'YS Display',
+            fontWeight: 400,
+            fontSize: 34,
+            lineHeight: 40/34,
+          },
+        },
+        {
+          props: { variant: 'h1-medium' },
+          style: {
+            fontFamily: 'YS Display',
+            fontWeight: 500,
+            fontSize: 34,
+            lineHeight: 40/34,
+          },
+        },
+        {
+          props: { variant: 'h2-regular' },
+          style: {
+            fontFamily: 'YS Display',
+            fontWeight: 400,
+            fontSize: 24,
+            lineHeight: 32/24,
+          },
+        },
+        {
+          props: { variant: 'h2-medium' },
+          style: {
+            fontFamily: 'YS Display',
+            fontWeight: 500,
+            fontSize: 24,
+            lineHeight: 32/24,
+          },
+        },
+        {
+          props: { variant: 'h3-regular' },
+          style: {
+            fontFamily: 'YS Display',
+            fontWeight: 400,
+            fontSize: 20,
+            lineHeight: 24/20,
+          },
+        },
+        {
+          props: { variant: 'h3-medium' },
+          style: {
+            fontFamily: 'YS Display',
+            fontWeight: 500,
+            fontSize: 20,
+            lineHeight: 24/20,
+          },
+        },
+        {
+          props: { variant: 'subtitle1-regular' },
+          style: {
+            fontFamily: 'YS Text',
+            fontWeight: 400,
+            fontSize: 18,
+            lineHeight: 24/18,
+          },
+        },
+        {
+          props: { variant: 'subtitle1-medium' },
+          style: {
+            fontFamily: 'YS Text',
+            fontWeight: 500,
+            fontSize: 18,
+            lineHeight: 24/18,
+          },
+        },
+        {
+          props: { variant: 'body1-regular' },
+          style: {
+            fontFamily: 'YS Text',
+            fontWeight: 400,
+            fontSize: 16,
+            lineHeight: 20/16,
+          },
+        },
+        {
+          props: { variant: 'body1-medium' },
+          style: {
+            fontFamily: 'YS Text',
+            fontWeight: 500,
+            fontSize: 16,
+            lineHeight: 20/16,
+          },
+        },
+        {
+          props: { variant: 'body2-regular' },
+          style: {
+            fontFamily: 'YS Text',
+            fontWeight: 400,
+            fontSize: 14,
+            lineHeight: 20/14,
+          },
+        },
+        {
+          props: { variant: 'body2-medium' },
+          style: {
+            fontFamily: 'YS Text',
+            fontWeight: 500,
+            fontSize: 14,
+            lineHeight: 20/14,
+          },
+        },
+        {
+          props: { variant: 'caption1-regular' },
+          style: {
+            fontFamily: 'YS Text',
+            fontWeight: 400,
+            fontSize: 13,
+            lineHeight: 16/13,
+          },
+        },
+        {
+          props: { variant: 'caption1-medium' },
+          style: {
+            fontFamily: 'YS Text',
+            fontWeight: 500,
+            fontSize: 13,
+            lineHeight: 16/13,
+          },
+        },
+        {
+          props: { variant: 'caption2-regular' },
+          style: {
+            fontFamily: 'YS Text',
+            fontWeight: 400,
+            fontSize: 11,
+            lineHeight: 12/11,
+          },
+        },
+        {
+          props: { variant: 'caption2-medium' },
+          style: {
+            fontFamily: 'YS Text',
+            fontWeight: 500,
+            fontSize: 11,
+            lineHeight: 12/11,
+          },
+        },
+      ],
+    }
   },
 });
+
 
 export default theme;

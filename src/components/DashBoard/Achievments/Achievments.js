@@ -11,14 +11,16 @@ export default function Achievments() {
     <Card elevation={4} sx={{ borderRadius: '10px' }} >
       <Stack direction={'row'} padding={2.4} height={100} >
         <Stack>
-          <Typography gutterBottom variant="body1" component="div" fontSize={20} fontWeight={500} >
+          <Typography gutterBottom variant="h3-medium" component="div">
             Достижения
           </Typography>
-          <Typography variant="body2" color="text.secondary" fontSize={11}>
+          <Typography variant="caption2-regular" color="text.secondary">
             За прошлую неделю ты хорошо прокачал навыки, так держать!
           </Typography>
         </Stack>
-        <img src={logo} alt='prize' />
+        <Stack>
+          <img src={logo} alt='prize' />
+        </Stack>
       </Stack>
     </Card>
   );
