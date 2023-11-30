@@ -9,11 +9,11 @@ import SkillsTable from './SkillsTable/SkillsTable';
 import Progress from './Progress/Progress';
 import Recommendations from './Recommendations/Recommendations';
 
-import { skills, progress, recommendations } from '../../constants/constants';
+import { skillsForDashboard, progress, recommendations } from '../../constants/constants';
 
 const { title, image, slogan, sloganColor, percentage, text  } = progress;
  
-export function DashBoard() {
+export default function DashBoard() {
   return (
     <Stack useFlexGap spacing={'20px'} direction={'row'} sx={{ backgroundColor: 'grey.main', p: '20px' }}>
       <Box width={610}>
@@ -24,7 +24,7 @@ export function DashBoard() {
           <Grid item  xs={6}>
             <Target />
           </Grid>
-          {skills.map((skill, index) => (
+          {skillsForDashboard.map((skill, index) => (
             <Grid key={index} item xs={4}>
               <Result result={skill.result} text={skill.text} textColor={skill.textColor}/>
             </Grid>

@@ -26,9 +26,11 @@ export default function SkillsTable() {
       <Table sx={{ minWidth: 610 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell variant='header' sx={{ fontSize: 16, fontWeight: 700, borderBottom:"none" }}>Навыки</TableCell>
-            <TableCell align="right" sx={{ borderBottom:"none" }}></TableCell>
-            <TableCell align="right" sx={{ fontSize: 10, textDecoration: 'underline', borderBottom:"none" }}>Показать все</TableCell>
+            <TableCell sx={{ borderBottom:"none" }}>
+              <Typography variant='body1-medium'>Навыки</Typography>
+            </TableCell>
+            <TableCell align="right" sx={{ borderBottom:"none" }} />
+            <TableCell align="right" sx={{ borderBottom:"none" }} />
           </TableRow>
         </TableHead>
         <TableBody>
@@ -37,10 +39,12 @@ export default function SkillsTable() {
               key={index}
               sx={{ "& td": { border: 0 } }}
             >
-              <TableCell component="th" scope="row" sx={{ fontSize: 12, fontWeight: 400, borderBottom:"none", py: 0 }}>
-                {row.name}
+              <TableCell component="th" scope="row" sx={{ borderBottom:"none", py: 0 }}>
+                <Typography variant='body3-regular'>{row.name}</Typography>
               </TableCell>
-              <TableCell align="right" sx={{ fontSize: 12, fontWeight: 400, py: 0 }}>{row.progress}</TableCell>
+              <TableCell align="right" sx={{ py: 0 }}>
+                <Typography variant='body3-regular'>{row.progress}</Typography>
+              </TableCell>
               <TableCell align="right" sx={{ py: '7px', display: 'flex' }} >
                 <Box sx={{
                   height: 23,
@@ -51,7 +55,7 @@ export default function SkillsTable() {
                   px: '12px',
                   py: '6px',
                 }}>
-                  <Typography sx={{ fontSize: 11, fontWeight: 400, lineHeight: '11px' }}>
+                  <Typography variant='caption2-regular'>
                     {row.result}
                   </Typography>  
                 </Box>             

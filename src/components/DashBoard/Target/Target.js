@@ -1,8 +1,9 @@
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
-import { Stack } from '@mui/material';
+import { Stack, IconButton } from '@mui/material';
 
 import arrow from '../../../images/Dashboard/Target/arrow.svg'
+
 
 
 export default function Target() {
@@ -16,7 +17,9 @@ export default function Target() {
           </Typography>
         </Stack>
         <Stack justifyContent={'flex-end'} marginLeft={'50px'}>
-          <img src={arrow} alt='prize' />
+          <IconButton sx={{ p: 0 }}>
+            <img src={arrow} alt='prize' />
+          </IconButton>
         </Stack>
       </Stack>
     </Card>

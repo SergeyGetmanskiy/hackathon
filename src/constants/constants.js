@@ -1,7 +1,8 @@
-import progressImage from '../images/Dashboard/progress.png'
-import book from '../images/Dashboard/book 2.png'
-import headPhones from '../images/Dashboard/headphones 2.svg'
-import edit from '../images/Dashboard/edit-2.svg'
+import progressImage from '../images/Dashboard/Progress/progress.png'
+
+import book from '../images/Dashboard/Recommendations/book 2.png'
+import headPhones from '../images/Dashboard/Recommendations/headphones 2.svg'
+import edit from '../images/Dashboard/Recommendations/edit-2.svg'
 
 import logo from '../images/SideMenu/logo.svg'
 import bookOpen from '../images/SideMenu/book-open.svg'
@@ -10,8 +11,44 @@ import graduation from '../images/SideMenu/graduation.svg'
 import home from '../images/SideMenu/home.svg'
 import skillsImage from '../images/SideMenu/skills.svg'
 
+import avatar from '../images/MainHeader/avatar.png'
+import bell from '../images/MainHeader/notification.svg'
+
+import board from '../images/TabsPanel/board.svg'
+import dashboard from '../images/TabsPanel/dashboard.svg'
+import library from '../images/TabsPanel/library.svg'
+
+import paperClip from '../images/Board/paperclip.svg'
+
+import arrow_back from '../images/NewSkill/arrow_back.svg'
+
+export const user = {
+  avatar: avatar,
+  job: 'UX/UI Дизайнер',
+};
+
+export const notification = bell;
+
+export const tabsPanelItems = [
+  {
+    icon: board,
+    title: "Доска",
+  },
+  {
+    icon: dashboard,
+    title: "Дашборд",
+  },
+  {
+    icon: library,
+    title: "Библиотека",
+  }
+];
 
 export const skills = [
+  'Компоненты в Figma', 'Бизнес аналитика', 'CSS', 'Дизайн системы', 'Презентация стекхолдерам', 'Метрики', 'Компоненты в Figma', 'Бизнес аналитика', 'CSS', 'Дизайн системы', 'Презентация стекхолдерам', 'Метрики',
+];
+
+export const skillsForDashboard = [
   {
     result: 45,
     text: 'Новых навыков изучено',
@@ -33,7 +70,7 @@ export const progress = {
   title: 'Твой прогресс',
   image: progressImage,
   slogan: 'Хорошая работа!',
-  sloganColor: '#46866B',
+  sloganColor: 'green.dark',
   percentage: 78,
   text: 'Ты уже близко к своей цели, осталось совсем немного',
 }
@@ -80,5 +117,106 @@ export const sideMenuItems = [
     title: 'Мастерская',
   }    
 ]
+
+export const skillsToLearn = [
+  {
+    title: 'Подбор шрифтов для заголовков и текста',
+    description: `Умение выбирать и применять правильные шрифты - важный навык,
+    который может значительно повысить качество дизайна и типографики. `,
+    attachmentIcon: paperClip,
+    attachmentText: 'Подборка актуальных материалов по теме',
+  },
+  {
+    title: 'Подбор шрифтов для заголовков и текста',
+    description: `Умение выбирать и применять правильные шрифты - важный навык,
+    который может значительно повысить качество дизайна и типографики. `,
+    attachmentIcon: paperClip,
+    attachmentText: 'Подборка актуальных материалов по теме',
+  },
+]
+
+export const skillsInProgress = [
+  {
+    title: 'Подбор шрифтов для заголовков и текста',
+    description: `Умение выбирать и применять правильные шрифты - важный навык,
+    который может значительно повысить качество дизайна и типографики. `,
+    progressBar: true,
+    progressBarValue: 90,
+    attachmentIcon: paperClip,
+    attachmentText: 'Подборка актуальных материалов по теме',
+  },
+  {
+    title: 'Подбор шрифтов для заголовков и текста',
+    description: `Умение выбирать и применять правильные шрифты - важный навык,
+    который может значительно повысить качество дизайна и типографики. `,
+    progressBar: true,
+    progressBarValue: 40,
+    attachmentIcon: paperClip,
+    attachmentText: 'Подборка актуальных материалов по теме',
+  },
+  {
+    title: 'Подбор шрифтов для заголовков и текста',
+    description: `Умение выбирать и применять правильные шрифты - важный навык,
+    который может значительно повысить качество дизайна и типографики. `,
+    progressBar: true,
+    progressBarValue: 30,
+    attachmentIcon: paperClip,
+    attachmentText: 'Подборка актуальных материалов по теме',
+  },
+]
+
+export const skillsFinished = [
+  {
+    title: 'Подбор шрифтов для заголовков и текста',
+    description: `Умение выбирать и применять правильные шрифты - важный навык,
+    который может значительно повысить качество дизайна и типографики. `,
+    attachmentIcon: paperClip,
+    attachmentText: 'Подборка актуальных материалов по теме',
+  },
+  {
+    title: 'Подбор шрифтов для заголовков и текста',
+    description: `Умение выбирать и применять правильные шрифты - важный навык,
+    который может значительно повысить качество дизайна и типографики. `,
+    attachmentIcon: paperClip,
+    attachmentText: 'Подборка актуальных материалов по теме',
+  },
+  {
+    title: 'Подбор шрифтов для заголовков и текста',
+    description: `Умение выбирать и применять правильные шрифты - важный навык,
+    который может значительно повысить качество дизайна и типографики. `,
+    attachmentIcon: paperClip,
+    attachmentText: 'Подборка актуальных материалов по теме',
+  },
+  {
+    title: 'Подбор шрифтов для заголовков и текста',
+    description: `Умение выбирать и применять правильные шрифты - важный навык,
+    который может значительно повысить качество дизайна и типографики. `,
+    attachmentIcon: paperClip,
+    attachmentText: 'Подборка актуальных материалов по теме',
+  },
+  {
+    title: 'Подбор шрифтов для заголовков и текста',
+    description: `Умение выбирать и применять правильные шрифты - важный навык,
+    который может значительно повысить качество дизайна и типографики. `,
+    attachmentIcon: paperClip,
+    attachmentText: 'Подборка актуальных материалов по теме',
+  },
+  {
+    title: 'Подбор шрифтов для заголовков и текста',
+    description: `Умение выбирать и применять правильные шрифты - важный навык,
+    который может значительно повысить качество дизайна и типографики. `,
+    attachmentIcon: paperClip,
+    attachmentText: 'Подборка актуальных материалов по теме',
+  },
+  {
+    title: 'Подбор шрифтов для заголовков и текста',
+    description: `Умение выбирать и применять правильные шрифты - важный навык,
+    который может значительно повысить качество дизайна и типографики. `,
+    attachmentIcon: paperClip,
+    attachmentText: 'Подборка актуальных материалов по теме',
+  },
+]
+
+export const arrowBack = arrow_back;
 
 
