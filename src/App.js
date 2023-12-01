@@ -17,9 +17,9 @@ function App() {
         <Route path='/onboarding/your-skills' element={<YourSkills />} />
       */}
         <Route path='/main' element={
-        <Box sx={{ display: 'flex' }}>
-          <Main />
-        </Box>} />
+          <Box sx={{ display: 'flex' }}>
+            <Main />
+          </Box>} />
       </Routes>
     </BrowserRouter>
   );

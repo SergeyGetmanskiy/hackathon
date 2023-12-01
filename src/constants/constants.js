@@ -22,6 +22,9 @@ import paperClip from '../images/Board/paperclip.svg'
 
 import arrow_back from '../images/NewSkill/arrow_back.svg'
 
+import logo_small from '../images/Skill/logo_small.svg'
+import external_link from '../images/Skill/external-link-alt 1.svg'
+
 export const user = {
   avatar: avatar,
   job: 'UX/UI Дизайнер',
@@ -218,5 +221,42 @@ export const skillsFinished = [
 ]
 
 export const arrowBack = arrow_back;
+
+export const skill = {
+  title: 'Подбор шрифтов для заголовков и текста',
+  shortTitle: 'шрифты',
+  description: `Умение выбирать и применять правильные шрифты - важный навык, который может
+  значительно повысить качество дизайна и типографики. Ведь шрифт не только отображает текст,
+   но и передает настроение, стиль и эстетику.`,
+  articles: [
+    {
+      title: 'Кто лучше подбирает шрифтовые пары: AI или дизайнеры?',
+      source: 'Medium',
+      duration: 5,
+    },
+    {
+      title: 'Типографика: последние тренды',
+      source: 'Muzli',
+      duration: 8,
+    },
+    {
+      title: '8 хитростей, которые сделают вашу типографику более читаемой',
+      source: 'LinkedIn',
+      duration: 12,
+    },
+    {
+      title: '2023 - год типографики, ориентированный на пользователей',
+      source: 'LinkedIn',
+      duration: 12,
+    }
+  ],
+  yandexCourseTitle: 'типографике',
+  status: 'Рекомендуемый',
+}
+
+export const logoSmall = logo_small;
+
+export const externalLink = external_link;
+
 
 

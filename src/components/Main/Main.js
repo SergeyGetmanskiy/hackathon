@@ -7,6 +7,7 @@ import TabsPanel from './TabsPanel/TabsPanel'
 import Board from '../Board/Board'
 import DashBoard from '../DashBoard/DashBoard'
 import NewSkill from '../NewSkill/NewSkill'
+import Skill from '../Skill/Skill'
 
 import SkillsToLearnMenu from './SkillsToLearnMenu/SkillsToLearnMenu'
 
@@ -20,7 +21,8 @@ export default function Main() {
       <Box sx={{ display: 'flex', flexDirection: 'column', position: 'relative', width: '1180px', bgcolor: 'grey.main' }}>
         <SkillsToLearnMenu isOpen={isSkillsToLearnMenuOpen} setIsOpen={setIsSkillsToLearnMenuOpen} />
         <MainHeader />
-        <NewSkill />
+        <Skill />
+      {/*  <NewSkill /> */}
       {/*  <TabsPanel board={<Board />} dashBoard={<DashBoard />}  /> */}
       </Box>
     </Box>

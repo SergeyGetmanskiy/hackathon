@@ -49,7 +49,7 @@ export default function SideMenu({ setIsOpen }) {
               <Box>
                 <img src={item.icon} alt={item.title} />
               </Box>
-              <Typography sx={item.title !== 'Навыки' ? { color: 'text.disabled' } : { color: 'white' }}
+              <Typography sx={item.title !== 'Навыки' ? { color: 'text.disabled' } : { color: 'white.main' }}
                 variant={item.title !== 'Навыки' ? 'caption1-regular' : 'caption1-medium' }
               >
                 {item.title}

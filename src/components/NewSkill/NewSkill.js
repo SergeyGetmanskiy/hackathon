@@ -10,7 +10,7 @@ export default function NewSkill() {
   const [isSubmitBtnActive, setIsSubmitBtnActive] = useState(false);
 
   return (
-    <Box sx={{ m: '20px', width: '948px', height: '100vh', bgcolor: 'white', borderRadius: '10px' }}>
+    <Box sx={{ m: '20px', width: '948px', height: '100vh', bgcolor: 'white.main', borderRadius: '10px' }}>
       <Box sx={{ width: '360px', display: 'flex', flexDirection: 'column', alignItems: 'start', gap: '20px', px: '36px', py: '20px' }}>
         <Button sx={{ p: 0, justifyContent: 'left' }}>
           <img src={arrowBack} alt='Стрелка назад' />
@@ -21,7 +21,7 @@ export default function NewSkill() {
         <Autocomplete
           disablePortal
           options={top100Films}
-          sx={{ width: 300 }}
+          sx={{ width: '300px' }}
           renderInput={(params) => <TextField {...params} label="Что ты хотел бы изучить..." />}
           onChange={() => setIsSubmitBtnActive(true)}
           

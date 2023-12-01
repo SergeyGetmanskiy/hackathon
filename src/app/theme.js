@@ -53,9 +53,13 @@ const theme = createTheme({
     brown: {
       main: 'rgba(169, 145, 117, 0.26',
     },
+    white: {
+      main: 'rgba(255, 255, 255, 1)',
+    },
     blue: {
       main: 'rgba(172, 204, 255, 1)',
       light: 'rgba(172, 204, 255, 1)',
+      dark: 'rgba(29, 107, 243, 1)',
     },
     progressBarOrange: {
       main: 'rgba(255, 225, 189, 1)',
@@ -319,6 +323,5 @@ const theme = createTheme({
     }
   },
 });
-
 
 export default theme;

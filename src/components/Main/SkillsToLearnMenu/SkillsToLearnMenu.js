@@ -37,7 +37,7 @@ export default function SkillsToLearnMenu({ isOpen, setIsOpen }) {
         py: '50px', 
         width: '290px', 
         bgcolor: 'black.main', 
-        color: 'white', 
+        color: 'white.main', 
         overflow: 'auto',
       }}
       role="presentation"
