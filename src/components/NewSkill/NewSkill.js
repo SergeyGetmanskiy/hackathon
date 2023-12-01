@@ -1,13 +1,16 @@
-import * as React from 'react';
+import {useState} from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import { Box, Button, Typography, ButtonGroup, Divider } from '@mui/material';
+import { Box, Button, Typography, Divider } from '@mui/material';
 
 import { arrowBack } from '../../constants/constants';
 
 export default function NewSkill() {
+
+  const [isSubmitBtnActive, setIsSubmitBtnActive] = useState(false);
+
   return (
-    <Box sx={{ flexGrow: 1, p: '20px', width: '870px' }}>
+    <Box sx={{ m: '20px', width: '948px', height: '100vh', bgcolor: 'white', borderRadius: '10px' }}>
       <Box sx={{ width: '360px', display: 'flex', flexDirection: 'column', alignItems: 'start', gap: '20px', px: '36px', py: '20px' }}>
         <Button sx={{ p: 0, justifyContent: 'left' }}>
           <img src={arrowBack} alt='Стрелка назад' />
@@ -19,12 +22,38 @@ export default function NewSkill() {
           disablePortal
           options={top100Films}
           sx={{ width: 300 }}
-          renderInput={(params) => <TextField {...params} label="Movie" />}
+          renderInput={(params) => <TextField {...params} label="Что ты хотел бы изучить..." />}
+          onChange={() => setIsSubmitBtnActive(true)}
+          
         />
         <Divider />
         <Box sx={{ display: 'flex', gap: '24px' }}>
-          <Button variant='contained' sx={{ textTransform: 'none' }}>Отменить</Button>
-          <Button variant='contained' sx={{ textTransform: 'none' }}>Добавить навык</Button>
+          <Button
+            variant='outlined' sx={{
+              textTransform: 'none', 
+              width: '107px', 
+              height: '40px', 
+              py: '10px', 
+              px: '20px' 
+            }}
+          >Отменить</Button>
+          <Button
+            variant='contained' sx={{ 
+              textTransform: 'none', 
+              width: '149px', 
+              height: '40px', 
+              py: '10px', 
+              px: '20px',
+              '&:disabled': {
+                bgcolor: `${isSubmitBtnActive ? 'blue' : 'black.black300'}`,
+                color: 'white',  
+              },
+              '&:enabled': {
+                color: 'white',  
+              },              
+            }}
+            disabled={isSubmitBtnActive ? false : true}
+          >Добавить навык</Button>
         </Box>
       </Box>
       

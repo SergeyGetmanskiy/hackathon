@@ -7,7 +7,6 @@ import Typography from '@mui/material/Typography';
 import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 
 import { user, notification } from '../../../constants/constants'
@@ -105,8 +104,8 @@ export default function MainHeader() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ height: '70px', bgcolor: 'grey.main' }}>
+    <Box  sx={{ width: '1180px' }}>
+      <AppBar elevation={0} position="static" sx={{ height: '70px', bgcolor: 'grey.main' }}>
         <Toolbar>
           <Typography
             variant="h3-regular"

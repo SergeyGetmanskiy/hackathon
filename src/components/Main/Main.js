@@ -17,7 +17,7 @@ export default function Main() {
   return (
     <Box sx={{ display: 'flex' }}>
       <SideMenu setIsOpen={setIsSkillsToLearnMenuOpen} />
-      <Box sx={{ display: 'flex', flexDirection: 'column', position: 'relative' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', position: 'relative', width: '1180px', bgcolor: 'grey.main' }}>
         <SkillsToLearnMenu isOpen={isSkillsToLearnMenuOpen} setIsOpen={setIsSkillsToLearnMenuOpen} />
         <MainHeader />
         <NewSkill />
