@@ -1,12 +1,13 @@
 import { AppBar, CardMedia, Container, Step, Stepper } from '@mui/material';
 import logo from '../../../image/logo 5.svg';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Outlet } from 'react-router-dom';
 
 function Header() {
     const location = useLocation();
     console.log(location.pathname)
     return (
-        <AppBar color='default' position='static' sx={{
+      <>
+      <AppBar color='default' position='static' sx={{
             height: '60px',
             bgcolor: 'common.white',
             boxShadow: 'none',
@@ -23,7 +24,7 @@ function Header() {
                     ml: '40px',
                 }}
             />
-            {location.pathname == '/onboarding/welcome-page' ? '' : <Container>
+            <Container>
                 <Stepper>
                     <Step sx={{
                         fontSize: '14px',
@@ -54,8 +55,12 @@ function Header() {
 
                     }}>4. Навыки на прокачку</Step>
                 </Stepper>
-            </Container>}
+            </Container>
         </AppBar>
+        <Outlet />
+      </>
+        
+        
     );
 };
 
