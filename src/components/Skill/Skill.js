@@ -9,20 +9,24 @@ import { logoSmall } from '../../constants/constants';
 import { externalLink } from '../../constants/constants';
 
 import { skill } from '../../constants/constants';
+import { useNavigate } from 'react-router-dom';
 
 export default function Skill() {
+
+  const navigate = useNavigate();
 
   const [checked, setChecked] = useState(false);
 
   const handleChange = (e) => {
     setChecked(e.target.checked);
-    console.log(e.target.checked, e.target.id)
   }
 
   return (
     <Box sx={{ m: '20px', width: '948px', height: '100vh', bgcolor: 'white.main', borderRadius: '10px' }}>
       <Box sx={{ position: 'relative', boxSizing: 'content-box', width: '490px', display: 'flex', flexDirection: 'column', alignItems: 'start', gap: '20px', px: '36px', py: '20px' }}>
-        <Button sx={{ p: 0, justifyContent: 'left' }}>
+        <Button
+          onClick={() => navigate(-1)}
+          sx={{ p: 0, justifyContent: 'left' }}>
           <img src={arrowBack} alt='Стрелка назад' />
         </Button>
         <Typography variant='subtitle1-medium'>

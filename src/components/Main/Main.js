@@ -1,3 +1,5 @@
+import { Outlet } from 'react-router-dom'
+
 import { useState } from 'react'
 import { Box } from '@mui/material'
 
@@ -21,9 +23,7 @@ export default function Main() {
       <Box sx={{ display: 'flex', flexDirection: 'column', position: 'relative', width: '1180px', bgcolor: 'grey.main' }}>
         <SkillsToLearnMenu isOpen={isSkillsToLearnMenuOpen} setIsOpen={setIsSkillsToLearnMenuOpen} />
         <MainHeader />
-        <Skill />
-      {/*  <NewSkill /> */}
-      {/*  <TabsPanel board={<Board />} dashBoard={<DashBoard />}  /> */}
+        <Outlet />
       </Box>
     </Box>
   )

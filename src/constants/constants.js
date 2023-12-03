@@ -48,7 +48,30 @@ export const tabsPanelItems = [
 ];
 
 export const skills = [
-  'Компоненты в Figma', 'Бизнес аналитика', 'CSS', 'Дизайн системы', 'Презентация стекхолдерам', 'Метрики', 'Компоненты в Figma', 'Бизнес аналитика', 'CSS', 'Дизайн системы', 'Презентация стекхолдерам', 'Метрики',
+  {
+    id: 'figma-components',
+    name: 'Компоненты в Figma',
+  },
+  {
+    id: 'business-analysis',
+    name: 'Бизнес аналитика',
+  },
+  {
+    id: 'css',
+    name: 'CSS',
+  },
+  {
+    id: 'system-design',
+    name: 'Дизайн системы',
+  },
+  {
+    id: 'stackholders',
+    name: 'Презентация стекхолдерам',
+  },
+  {
+    id: 'metrics',
+    name: 'Метрики',
+  },
 ];
 
 export const skillsForDashboard = [
@@ -258,5 +281,9 @@ export const logoSmall = logo_small;
 
 export const externalLink = external_link;
 
-
-
+export const skillsDB = [
+  { label: 'Шрифты для заголовков', id: 1994 },
+  { label: 'Шрифты для основного текста', id: 1972 },
+  { label: 'Парные шрифты', id: 1974 },
+  { label: 'Шрифты с засечками', id: 2008 },
+];

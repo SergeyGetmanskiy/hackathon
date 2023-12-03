@@ -6,10 +6,13 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 
 import { sideMenuItems, sideMenuLogo } from '../../../constants/constants';
+import { useNavigate } from 'react-router-dom';
 
 const drawerWidth = 105;
 
 export default function SideMenu({ setIsOpen }) {
+
+  const navigate = useNavigate();
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -38,7 +41,7 @@ export default function SideMenu({ setIsOpen }) {
         anchor="left"
       >
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '76px' }}>
-          <IconButton >
+          <IconButton onClick={() => navigate('/')}>
             <img src={sideMenuLogo} alt='Логотип мастерской' />
           </IconButton>
         </Box>
