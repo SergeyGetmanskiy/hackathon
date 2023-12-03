@@ -101,6 +101,46 @@ const theme = createTheme({
         }
       `,
     },
+    
+    MuiStep: {
+      styleOverrides: {
+        root: {
+          padding: '0px 0px 0px 24px',
+          height: '18px',
+        },
+      },
+    },
+    MuiStepButton: {
+      styleOverrides: {
+        root: {
+          fontFamily: 'YS Text',
+          margin: '0',
+          padding: '0',
+          verticalAlign: 'top',
+        },
+      },
+    },
+    MuiStepLabel: {
+      styleOverrides: {
+        label: {
+          fontFamily: 'YS Text',
+          fontSize: '14px',
+          fontWeight: '400',
+          lineHeight: '18px',
+          color: '#797981',
+          '&.Mui-active': {
+            color: '#1D6BF3',
+          },
+        },
+        iconContainer: {
+          color: '#797981',
+          '&.Mui-active': {
+            color: '#1D6BF3',
+
+          },
+        },
+      },
+    },
     MuiTypography: {
       variants: [
         {
@@ -109,7 +149,7 @@ const theme = createTheme({
             fontFamily: 'YS Display',
             fontWeight: 400,
             fontSize: 34,
-            lineHeight: 40/34,
+            lineHeight: 40 / 34,
           },
         },
         {
@@ -118,7 +158,7 @@ const theme = createTheme({
             fontFamily: 'YS Display',
             fontWeight: 500,
             fontSize: 34,
-            lineHeight: 40/34,
+            lineHeight: 40 / 34,
           },
         },
         {
@@ -127,7 +167,7 @@ const theme = createTheme({
             fontFamily: 'YS Display',
             fontWeight: 400,
             fontSize: 24,
-            lineHeight: 32/24,
+            lineHeight: 32 / 24,
           },
         },
         {
@@ -136,7 +176,7 @@ const theme = createTheme({
             fontFamily: 'YS Display',
             fontWeight: 500,
             fontSize: 24,
-            lineHeight: 32/24,
+            lineHeight: 32 / 24,
           },
         },
         {
@@ -145,7 +185,7 @@ const theme = createTheme({
             fontFamily: 'YS Display',
             fontWeight: 400,
             fontSize: 20,
-            lineHeight: 24/20,
+            lineHeight: 24 / 20,
           },
         },
         {
@@ -154,7 +194,7 @@ const theme = createTheme({
             fontFamily: 'YS Display',
             fontWeight: 500,
             fontSize: 20,
-            lineHeight: 24/20,
+            lineHeight: 24 / 20,
           },
         },
         {
@@ -163,7 +203,7 @@ const theme = createTheme({
             fontFamily: 'YS Text',
             fontWeight: 400,
             fontSize: 18,
-            lineHeight: 24/18,
+            lineHeight: 24 / 18,
           },
         },
         {
@@ -172,7 +212,7 @@ const theme = createTheme({
             fontFamily: 'YS Text',
             fontWeight: 500,
             fontSize: 18,
-            lineHeight: 24/18,
+            lineHeight: 24 / 18,
           },
         },
         {
@@ -181,7 +221,7 @@ const theme = createTheme({
             fontFamily: 'YS Text',
             fontWeight: 400,
             fontSize: 16,
-            lineHeight: 20/16,
+            lineHeight: 20 / 16,
           },
         },
         {
@@ -190,7 +230,7 @@ const theme = createTheme({
             fontFamily: 'YS Text',
             fontWeight: 500,
             fontSize: 16,
-            lineHeight: 20/16,
+            lineHeight: 20 / 16,
           },
         },
         {
@@ -199,7 +239,7 @@ const theme = createTheme({
             fontFamily: 'YS Text',
             fontWeight: 400,
             fontSize: 14,
-            lineHeight: 20/14,
+            lineHeight: '18px',
           },
         },
         {
@@ -208,7 +248,7 @@ const theme = createTheme({
             fontFamily: 'YS Text',
             fontWeight: 500,
             fontSize: 14,
-            lineHeight: 20/14,
+            lineHeight: 20 / 14,
           },
         },
         {
@@ -217,7 +257,7 @@ const theme = createTheme({
             fontFamily: 'YS Display',
             fontWeight: 400,
             fontSize: 12,
-            lineHeight: 14/12,
+            lineHeight: 14 / 12,
           },
         },
         {
@@ -226,7 +266,7 @@ const theme = createTheme({
             fontFamily: 'YS Display',
             fontWeight: 500,
             fontSize: 12,
-            lineHeight: 14/12,
+            lineHeight: 14 / 12,
           },
         },
         {
@@ -235,7 +275,7 @@ const theme = createTheme({
             fontFamily: 'YS Text',
             fontWeight: 400,
             fontSize: 13,
-            lineHeight: 16/13,
+            lineHeight: 16 / 13,
           },
         },
         {
@@ -244,7 +284,7 @@ const theme = createTheme({
             fontFamily: 'YS Text',
             fontWeight: 500,
             fontSize: 13,
-            lineHeight: 16/13,
+            lineHeight: 16 / 13,
           },
         },
         {
@@ -253,7 +293,7 @@ const theme = createTheme({
             fontFamily: 'YS Text',
             fontWeight: 400,
             fontSize: 11,
-            lineHeight: 12/11,
+            lineHeight: 12 / 11,
           },
         },
         {
@@ -262,7 +302,7 @@ const theme = createTheme({
             fontFamily: 'YS Text',
             fontWeight: 500,
             fontSize: 11,
-            lineHeight: 12/11,
+            lineHeight: 12 / 11,
           },
         },
       ],

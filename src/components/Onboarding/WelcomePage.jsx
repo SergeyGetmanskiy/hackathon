@@ -1,9 +1,10 @@
-import contestImage from '../../../image/image 36.svg';
+import contestImage from '../../image/image 36.svg';
 import { Box } from "@mui/system";
 import { Button, CardMedia, Stack, Typography } from '@mui/material';
 
 
-function WelcomePage() {
+function WelcomePage({ location }) {
+
     return (
         <Stack direction='row' spacing='90px' component='main' sx={{
             p: '154px 0 0 142px',
@@ -11,21 +12,13 @@ function WelcomePage() {
             <Box sx={{
                 maxWidth: '488px',
             }}>
-                <Typography variant='h1' component='h1' sx={{
-                    fontWeight: '500',
-                    fontSize: '38px',
-                    color: '#000',
-                    lineHeight: '44.5px',
+                <Typography variant='h1-medium' component='h1' sx={{
                 }}>Приветствуем тебя в Карьерном Пути!</Typography>
-                <Typography variant='p' component='p' sx={{
-                    fontWeight: '500',
-                    fontSize: '18px',
-                    color: '#000',
-                    lineHeight: '24px',
+                <Typography variant='subtitle1-medium' component='p' sx={{
                     p: '18px 0 57px 0',
                 }}>
-                    Застрял на одной позиции и не знаешь, как двигаться дальше? Нам знакомо, насколько важно постоянно развиваться. <br />Мы создали этот сервис, чтобы помочь тебе освоить новые высоты в твоей карьере.
-                </Typography>
+                    Застрял на одной позиции и не знаешь, как двигаться дальше? Нам знакомо, насколько важно постоянно развиваться.</Typography>
+                <Typography variant='subtitle1-medium'></Typography>
                 <Stack direction='row' spacing='20px'>
                     <Button variant='outlined' sx={{
                         width: '183px',

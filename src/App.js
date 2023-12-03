@@ -2,27 +2,30 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import { Box } from "@mui/material";
 
-import { Counter } from "./components/Counter/Counter";
 import { DashBoard } from "./components/DashBoard/DashBoard";
 import SideMenu from "./components/SideMenu/SideMenu";
-import Header from "./components/Onboarding/Header/Header";
-import WelcomePage from "./components/Onboarding/WelcomePage/WelcomePage";
-import YourLevel from "./components/Onboarding/YourLevel/YourLevel";
-import YourSkills from "./components/Onboarding/YourSkills/YourSkills";
+
+import Onboarding from './components/Onboarding/Onboarding';
+import LevelOrSkillsPage from './components/Onboarding/LevelOrSkillsPage';
+import Stepper from './components/Stepper/Stepper';
 
 function App() {
+
   return (
-        <BrowserRouter>
-      <Header />
+    <BrowserRouter>
       <Routes>
-        <Route path='/onboarding/welcome-page' element={<WelcomePage />} />
-        <Route path='/onboarding/your-level' element={<YourLevel />} />
-        <Route path='/onboarding/your-skills' element={<YourSkills />} />
+        <Route path='onboarding' element={<Onboarding />}>
+          <Route path='your-level' element={<LevelOrSkillsPage />} />
+          <Route path='your-skills' element={<LevelOrSkillsPage />} />
+          <Route path='desired-level' element={<LevelOrSkillsPage />} />
+          <Route path='desired-skills' element={<LevelOrSkillsPage />} />
+        </Route>
         <Route path='/dashboard' element={
-      <Box sx={{ display: 'flex' }}>
-        <SideMenu />
-        <DashBoard />
-      </Box>} />
+          <Box sx={{ display: 'flex' }}>
+            <SideMenu />
+            <DashBoard />
+          </Box>} />
+          <Route path='www' element={<Stepper />} />
       </Routes>
     </BrowserRouter>
   );
