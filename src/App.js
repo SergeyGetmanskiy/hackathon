@@ -1,6 +1,14 @@
 import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
+import { Box } from "@mui/material";
+
+import { DashBoard } from "./components/DashBoard/DashBoard";
+import SideMenu from "./components/SideMenu/SideMenu";
+
+import Onboarding from './components/Onboarding/Onboarding';
+import LevelOrSkillsPage from './components/Onboarding/LevelOrSkillsPage';
+import Stepper from './components/Stepper/Stepper';
 import Main from './components/Main/Main';
 import Header from "./components/Onboarding/Header/Header";
 import WelcomePage from "./components/Onboarding/WelcomePage/WelcomePage";
@@ -31,11 +39,12 @@ function App() {
     </Routes>
     :
     <Routes>
-      <Route path='/' element={<WelcomePage />} />
-      <Route path='onboarding' element={<Header />}>
-        <Route path='your-level' element={<YourLevel />} />
-        <Route path='your-skills' element={<YourSkills setIsOnboardingComplete={setIsOnboardingComplete} />} />
-      </Route>
+    <Route path='onboarding' element={<Onboarding />}>
+      <Route path='your-level' element={<LevelOrSkillsPage />} />
+      <Route path='your-skills' element={<LevelOrSkillsPage />} />
+      <Route path='desired-level' element={<LevelOrSkillsPage />} />
+      <Route path='desired-skills' element={<LevelOrSkillsPage />} />
+    </Route>
     </Routes>
   );
 }
