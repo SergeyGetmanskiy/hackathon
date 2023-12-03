@@ -14,7 +14,7 @@ function App() {
 
   const [loggedIn, setLoggedIn] = useState(true);
 
-  const [isOnboardingComplete, setIsOnboardingComplete] = useState(false); 
+  const [isOnboardingComplete, setIsOnboardingComplete] = useState(true); 
   
   const [skills, setSkills ] = useState(skillsToLearn);
 

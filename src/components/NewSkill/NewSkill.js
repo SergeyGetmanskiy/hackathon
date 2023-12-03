@@ -21,8 +21,11 @@ export default function NewSkill({skills, setSkills}) {
   return (
     <Box sx={{ m: '20px', width: '948px', height: '100vh', bgcolor: 'white.main', borderRadius: '10px' }}>
       <Box sx={{ width: '360px', display: 'flex', flexDirection: 'column', alignItems: 'start', gap: '20px', px: '36px', py: '20px' }}>
-        <Button onClick={() => navigate(-1) } sx={{ p: 0, justifyContent: 'left' }}>
+        <Button
+          onClick={() => navigate(-1)}
+          sx={{ display: 'flex', p: 0, justifyContent: '', width: '20px' }}>
           <img src={arrowBack} alt='Стрелка назад' />
+          <Typography color={'black.black500'} variant='body3-regular' sx={{ textTransform: 'none', ml: '5px' }}>Назад</Typography>
         </Button>
         <Typography variant='subtitle1-medium'>
           Новый навык
