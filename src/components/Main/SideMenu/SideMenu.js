@@ -1,18 +1,32 @@
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
-import { IconButton } from '@mui/material';
+import { IconButton, ListItemButton } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
 
-import { sideMenuItems, sideMenuLogo } from '../../constants/constants';
+import { sideMenuItems, sideMenuLogo } from '../../../constants/constants';
+import { useNavigate } from 'react-router-dom';
 
 const drawerWidth = 105;
 
-export default function SideMenu() {
+export default function SideMenu({ setIsOpen }) {
+
+  const navigate = useNavigate();
+
+  const toggleDrawer = (open) => (event) => {
+    if (
+      event &&
+      event.type === 'keydown' &&
+      (event.key === 'Tab' || event.key === 'Shift')
+    ) {
+      return;
+    }
+    setIsOpen(true);
+  };
+
   return (
-    <Box sx={{ display: 'flex'}}>
+    <Box sx={{ display: 'flex', zIndex: 1301}}>
       <Drawer
         sx={{
           width: drawerWidth,
@@ -27,23 +41,23 @@ export default function SideMenu() {
         anchor="left"
       >
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '76px' }}>
-          <IconButton >
+          <IconButton onClick={() => navigate('/')}>
             <img src={sideMenuLogo} alt='Логотип мастерской' />
           </IconButton>
         </Box>
         <Divider variant='middle' sx={{ bgcolor: 'black.light', mb: '20px' }}/>
         <List sx={{ display: 'flex', flexDirection: 'column', gap: '36px'}}>
           {sideMenuItems.map((item, index) => (
-            <ListItem key={index} disablePadding sx={{ display: 'flex', flexDirection: 'column', height: '45px', py: 0, alignItems: 'center'  }}>
+            <ListItemButton onClick={item.title === 'Навыки' ? toggleDrawer(true) : null} key={index} sx={{ display: 'flex', flexDirection: 'column', height: '45px', py: 0, alignItems: 'center'  }}>
               <Box>
                 <img src={item.icon} alt={item.title} />
               </Box>
-              <Typography sx={item.title !== 'Навыки' ? { color: 'text.disabled' } : { color: 'white' }}
+              <Typography sx={item.title !== 'Навыки' ? { color: 'text.disabled' } : { color: 'white.main' }}
                 variant={item.title !== 'Навыки' ? 'caption1-regular' : 'caption1-medium' }
               >
                 {item.title}
               </Typography>
-            </ListItem>
+            </ListItemButton>
           ))}
         </List>
       </Drawer>
