@@ -15,7 +15,7 @@ export default function NewSkill({skills, setSkills}) {
 
   const handleChange = (e, newValue) => {
     setIsSubmitBtnActive(true);
-    setSkills([newValue, ...skills])
+    setSkills([skills[0], ...skills].map((skill, index) => index === 0 ? {...skill, title: newValue.label} : skill));
   }
 
   return (
@@ -48,7 +48,7 @@ export default function NewSkill({skills, setSkills}) {
             }}
           >Отменить</Button>
           <Button
-            onClick={() => navigate('') }
+            onClick={() => navigate('../skills') }
             variant='contained' sx={{ 
               textTransform: 'none', 
               width: '149px', 

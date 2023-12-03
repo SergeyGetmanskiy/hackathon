@@ -14,7 +14,7 @@ function App() {
 
   const [loggedIn, setLoggedIn] = useState(true);
 
-  const [isOnboardingComplete, setIsOnboardingComplete] = useState(true); 
+  const [isOnboardingComplete, setIsOnboardingComplete] = useState(false); 
   
   const [skills, setSkills ] = useState(skillsToLearn);
 
@@ -29,7 +29,7 @@ function App() {
     </Routes>
     :
     <Routes>
-      <Route path='onboarding' element={<Onboarding />}>
+      <Route path='/onboarding' element={<Onboarding />}>
         <Route path='your-level' element={<LevelOrSkillsPage />} />
         <Route path='your-skills' element={<LevelOrSkillsPage />} />
         <Route path='desired-level' element={<LevelOrSkillsPage />} />

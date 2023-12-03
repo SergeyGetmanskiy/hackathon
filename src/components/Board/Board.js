@@ -13,8 +13,6 @@ const skillCategory = 'Компоненты в Figma'
 
 export default function Board({skills, setSkills}) {
 
-  
-
   const navigate = useNavigate();
 
   return (
