@@ -1,7 +1,16 @@
 import { Button, ButtonGroup, Checkbox, Container, Grid, Paper, Stack, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 
-function YourSkills() {
+function YourSkills({setIsOnboardingComplete}) {
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    setIsOnboardingComplete(true);
+    navigate('/', {replace: true})
+  }
+
     return (
         <Container component='main' sx={{
             display: 'flex',
@@ -153,7 +162,8 @@ function YourSkills() {
                     borderColor: '#5A9BFF',
                     bgcolor: '#5A9BFF',
                 }}>Назад</Button>
-                <Button variant='contained' href='/onboarding/your-skills' sx={{
+                <Button variant='contained' onClick={() => handleClick()}
+                    sx={{
                     width: '183px',
                     p: '15px 0',
                     fontSize: '16px',

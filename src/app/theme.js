@@ -19,7 +19,11 @@ const theme = createTheme({
     black: {
       main: 'rgba(26, 27, 34, 1)',
       light: 'rgba(181, 181, 183, 1)',
+      black100: 'rgba(221, 224, 228, 1)',
+      black300: 'rgba(181, 181, 183, 1)',
       black500: 'rgba(121, 121, 129, 1)',
+      black600: 'rgba(76, 79, 93, 1)',
+      black700: 'rgba(46, 48, 56, 1)',
     },
     grey: {
       main: 'rgba(248, 248, 248, 1)',
@@ -49,8 +53,22 @@ const theme = createTheme({
     brown: {
       main: 'rgba(169, 145, 117, 0.26',
     },
+    white: {
+      main: 'rgba(255, 255, 255, 1)',
+    },
     blue: {
+      main: 'rgba(172, 204, 255, 1)',
       light: 'rgba(172, 204, 255, 1)',
+      dark: 'rgba(29, 107, 243, 1)',
+    },
+    progressBarOrange: {
+      main: 'rgba(255, 225, 189, 1)',
+    },
+    progressBarBlue: {
+      main: 'rgba(172, 204, 255, 1)',
+    },
+    progressBarGrey: {
+      main: 'rgba(181, 181, 183, 1)',
     },
     error: {
       main: 'rgba(255, 2, 0, 1)',
@@ -230,6 +248,24 @@ const theme = createTheme({
           },
         },
         {
+          props: { variant: 'body4-regular' },
+          style: {
+            fontFamily: 'YS Display',
+            fontWeight: 400,
+            fontSize: 9,
+            lineHeight: 11/9,
+          },
+        },
+        {
+          props: { variant: 'body4-medium' },
+          style: {
+            fontFamily: 'YS Display',
+            fontWeight: 500,
+            fontSize: 9,
+            lineHeight: 11/9,
+          },
+        },
+        {
           props: { variant: 'caption1-regular' },
           style: {
             fontFamily: 'YS Text',
@@ -265,10 +301,27 @@ const theme = createTheme({
             lineHeight: 12/11,
           },
         },
+        {
+          props: { variant: 'caption3-regular' },
+          style: {
+            fontFamily: 'YS Text',
+            fontWeight: 400,
+            fontSize: 8,
+            lineHeight: 10/8,
+          },
+        },
+        {
+          props: { variant: 'caption3-medium' },
+          style: {
+            fontFamily: 'YS Text',
+            fontWeight: 500,
+            fontSize: 8,
+            lineHeight: 10/8,
+          },
+        },
       ],
     }
   },
 });
-
 
 export default theme;

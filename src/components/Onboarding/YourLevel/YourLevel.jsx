@@ -1,6 +1,10 @@
 import { Button, Container, Paper, Stack, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 function YourLevel() {
+
+  const navigate = useNavigate();
+
     return (
         <Container component='main' sx={{
             display: 'flex',
@@ -51,7 +55,8 @@ function YourLevel() {
                     lineHeight: '20px',
                 }}>Middle +</Paper>
             </Stack>
-            <Button variant='contained' href='/onboarding/your-skills' sx={{
+            <Button variant='contained' onClick={() => navigate('../your-skills', {replace: true})} 
+                sx={{
                 width: '183px',
                 p: '15px 0',
                 fontSize: '16px',
