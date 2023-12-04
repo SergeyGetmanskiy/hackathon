@@ -25,6 +25,9 @@ import arrow_back from '../images/NewSkill/arrow_back.svg'
 import logo_small from '../images/Skill/logo_small.svg'
 import external_link from '../images/Skill/external-link-alt 1.svg'
 
+import logo_onboarding from '../images/Onboarding/logo 5.svg'
+import welcome_image from '../images/Onboarding/image 36.svg'
+
 export const user = {
   avatar: avatar,
   job: 'UX/UI Дизайнер',
@@ -286,4 +289,15 @@ export const skillsDB = [
   { label: 'Шрифты для основного текста', id: 1972 },
   { label: 'Парные шрифты', id: 1974 },
   { label: 'Шрифты с засечками', id: 2008 },
+];
+
+export const logoOnboarding = logo_onboarding;
+
+export const welcomeImage = welcome_image;
+
+export const steps = [
+  'Твой уровень',
+  'Навыки которыми владеешь',
+  'К чему стремишься',
+  'Навыки на прокачку',
 ];

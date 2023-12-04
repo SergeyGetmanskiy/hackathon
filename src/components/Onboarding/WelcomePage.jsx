@@ -1,9 +1,9 @@
-import contestImage from '../../image/image 36.svg';
 import { Box } from "@mui/system";
 import { Button, CardMedia, Stack, Typography } from '@mui/material';
 
+import { welcomeImage } from "../../constants/constants";
 
-function WelcomePage({ location }) {
+function WelcomePage() {
 
     return (
         <Stack direction='row' spacing='90px' component='main' sx={{
@@ -12,7 +12,7 @@ function WelcomePage({ location }) {
             <Box sx={{
                 maxWidth: '488px',
             }}>
-                <Typography variant='h1-medium' component='h1' sx={{
+                <Typography variant='h1-medium' color='black.black700' component='h1' sx={{
                 }}>Приветствуем тебя в Карьерном Пути!</Typography>
                 <Typography variant='subtitle1-medium' component='p' sx={{
                     p: '18px 0 57px 0',
@@ -48,7 +48,7 @@ function WelcomePage({ location }) {
             </Box>
             <CardMedia
                 component="img"
-                image={contestImage}
+                image={welcomeImage}
                 onLoad={() => console.log()}
                 onError={() => console.log()}
                 alt="Здесь должна быть картинка"
