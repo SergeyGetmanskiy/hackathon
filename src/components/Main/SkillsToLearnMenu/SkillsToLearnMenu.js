@@ -1,20 +1,12 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
 import { Typography } from '@mui/material';
 
-import SkillCard from './SkillCard/SkillCard';
-
-import { skills } from '../../../constants/constants'
+import SkillFilter from './SkillFilter/SkillFilter';
 
 export default function SkillsToLearnMenu({ isOpen, setIsOpen }) {
-
-  const navigate = useNavigate();
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -44,21 +36,12 @@ export default function SkillsToLearnMenu({ isOpen, setIsOpen }) {
         overflow: 'auto',
       }}
       role="presentation"
-      onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
     >
-      <Box sx={{ alignSelf: 'flex-start', ml: '14px', mb: '27px' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignSelf: 'flex-start', ml: '14px', mb: '27px', gap: '10px' }}>
         <Typography variant='body1-medium'>Навыки для изучения</Typography>
-      </Box>
-      <List sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        {skills.map((item, index) => (
-          <ListItem key={index} sx={{ p: 0,  }}>
-            <ListItemButton sx={{ p: 0 }} onClick={() => navigate(`/skills`)}>
-              <SkillCard title={item.name} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+        <SkillFilter onClick={toggleDrawer(false)}  />
+      </Box>      
     </Box>
   );
 

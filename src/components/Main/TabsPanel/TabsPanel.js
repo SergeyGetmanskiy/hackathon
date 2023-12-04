@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 import { tabsPanelItems } from '../../../constants/constants'
 import Board from '../../Board/Board';
 import DashBoard from '../../DashBoard/DashBoard';
+import Library from '../../Library/Library';
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -59,6 +60,7 @@ export default function TabsPanel({ skills, setSkills }) {
           textColor="inherit"
           variant="standard"
           aria-label="full width tabs example"
+          TabIndicatorProps={{ hidden: true }}
         >
           {tabsPanelItems.map((item, index) => (
             <Tab
@@ -73,7 +75,7 @@ export default function TabsPanel({ skills, setSkills }) {
       </Box>
       <CustomTabPanel value={value} index={0} children={<Board skills={skills} setSkills={setSkills}/>} />
       <CustomTabPanel value={value} index={1} children={<DashBoard />} />
-      <CustomTabPanel value={value} index={2} />
+      <CustomTabPanel value={value} index={2} children={<Library />}/>
     </Box>
   );
 }
