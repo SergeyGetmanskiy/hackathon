@@ -1,21 +1,36 @@
 import { useNavigate } from 'react-router-dom';
-import {useState} from 'react';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux'
+import { nanoid } from '@reduxjs/toolkit'
+
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Box, Button, Typography, Divider } from '@mui/material';
 
 import { skillsDB, arrowBack } from '../../constants/constants';
 
+import { skillAdded } from '../../features/skills/skillsSlice';
 
-export default function NewSkill({skills, setSkills}) {
+export default function NewSkill() {
 
   const [isSubmitBtnActive, setIsSubmitBtnActive] = useState(false);
+  const [valueSelected, setValueSelected] = useState();
+
+  const skillsForDropDown = skillsDB.map(item => { return {label: item.title, id: item.skillId } });
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleChange = (e, newValue) => {
     setIsSubmitBtnActive(true);
-    setSkills([skills[0], ...skills].map((skill, index) => index === 0 ? {...skill, title: newValue.label} : skill));
+    if(newValue) {
+      setValueSelected(newValue.id);
+    }
+  }
+
+  const handleSubmit = (e) => {
+    dispatch(skillAdded(skillsDB.find(item => item.skillId === valueSelected)))
+    navigate('../skills')
   }
 
   return (
@@ -32,7 +47,8 @@ export default function NewSkill({skills, setSkills}) {
         </Typography>
         <Autocomplete
           disablePortal
-          options={skillsDB}
+          options={skillsForDropDown}
+          isOptionEqualToValue={(option, value) => option.id === value.id}
           sx={{ width: '300px' }}
           renderInput={(params) => <TextField {...params} label="Что ты хотел бы изучить..." />}
           onChange={(e, newValue) => handleChange(e, newValue)}
@@ -51,7 +67,7 @@ export default function NewSkill({skills, setSkills}) {
             }}
           >Отменить</Button>
           <Button
-            onClick={() => navigate('../skills') }
+            onClick={ handleSubmit }
             variant='contained' sx={{ 
               textTransform: 'none', 
               width: '149px', 

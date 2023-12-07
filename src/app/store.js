@@ -1,12 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from '../components/Counter/CounterSlice';
 
+import onboardingReducer from "../features/onboarding/onboardingSlice";
+import skillsReducer from '../features/skills/skillsSlice'
 import stepperReducer from '../components/Stepper/stepperSlice';
 
 
-export default configureStore({
+const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    onboarding: onboardingReducer,
+    skills: skillsReducer,
     stepper: stepperReducer,
   },
 })
+
+console.log(store);
+
+export default store

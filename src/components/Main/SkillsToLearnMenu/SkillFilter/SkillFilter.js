@@ -99,7 +99,7 @@ export default function SkillFilter({ onClick }) {
               key={index}
               label={item}
               iconPosition='start'
-              sx={{ '&.MuiButtonBase-root.MuiTab-root': { minHeight: '24px' }, fontFamily: 'YS Text', fontSize: '14px', lineHeight: '20px', fontWeight: '500', textTransform: 'none',  minWidth: 0, py: 0, '&:first-child': { pl: 0 } }}
+              sx={{ '&.MuiButtonBase-root.MuiTab-root': { minHeight: '24px' }, fontFamily: 'YS Text', fontSize: '14px', lineHeight: '20px', fontWeight: '500', textTransform: 'none',  minWidth: 0, py: 0, '&:first-of-type': { pl: 0 } }}
               {...a11yProps([index])} />
           ))}
         </Tabs>

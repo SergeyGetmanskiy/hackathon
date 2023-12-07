@@ -18,8 +18,6 @@ import board from '../images/TabsPanel/board.svg'
 import dashboard from '../images/TabsPanel/dashboard.svg'
 import library from '../images/TabsPanel/library.svg'
 
-import paperClip from '../images/Board/paperclip.svg'
-
 import arrow_back from '../images/NewSkill/arrow_back.svg'
 
 import logo_small from '../images/Skill/logo_small.svg'
@@ -150,105 +148,6 @@ export const sideMenuItems = [
   }    
 ]
 
-export const skillsToLearn = [
-  {
-    title: 'Подбор шрифтов для заголовков и текста',
-    description: `Умение выбирать и применять правильные шрифты - важный навык,
-    который может значительно повысить качество дизайна и типографики. `,
-    attachmentIcon: paperClip,
-    attachmentText: 'Подборка актуальных материалов по теме',
-  },
-  {
-    title: 'Подбор шрифтов для заголовков и текста',
-    description: `Умение выбирать и применять правильные шрифты - важный навык,
-    который может значительно повысить качество дизайна и типографики. `,
-    attachmentIcon: paperClip,
-    attachmentText: 'Подборка актуальных материалов по теме',
-  },
-]
-
-export const skillsInProgress = [
-  {
-    title: 'Подбор шрифтов для заголовков и текста',
-    description: `Умение выбирать и применять правильные шрифты - важный навык,
-    который может значительно повысить качество дизайна и типографики. `,
-    progressBar: true,
-    progressBarValue: 90,
-    attachmentIcon: paperClip,
-    attachmentText: 'Подборка актуальных материалов по теме',
-  },
-  {
-    title: 'Подбор шрифтов для заголовков и текста',
-    description: `Умение выбирать и применять правильные шрифты - важный навык,
-    который может значительно повысить качество дизайна и типографики. `,
-    progressBar: true,
-    progressBarValue: 40,
-    attachmentIcon: paperClip,
-    attachmentText: 'Подборка актуальных материалов по теме',
-  },
-  {
-    title: 'Подбор шрифтов для заголовков и текста',
-    description: `Умение выбирать и применять правильные шрифты - важный навык,
-    который может значительно повысить качество дизайна и типографики. `,
-    progressBar: true,
-    progressBarValue: 30,
-    attachmentIcon: paperClip,
-    attachmentText: 'Подборка актуальных материалов по теме',
-  },
-]
-
-export const skillsFinished = [
-  {
-    title: 'Подбор шрифтов для заголовков и текста',
-    description: `Умение выбирать и применять правильные шрифты - важный навык,
-    который может значительно повысить качество дизайна и типографики. `,
-    attachmentIcon: paperClip,
-    attachmentText: 'Подборка актуальных материалов по теме',
-  },
-  {
-    title: 'Подбор шрифтов для заголовков и текста',
-    description: `Умение выбирать и применять правильные шрифты - важный навык,
-    который может значительно повысить качество дизайна и типографики. `,
-    attachmentIcon: paperClip,
-    attachmentText: 'Подборка актуальных материалов по теме',
-  },
-  {
-    title: 'Подбор шрифтов для заголовков и текста',
-    description: `Умение выбирать и применять правильные шрифты - важный навык,
-    который может значительно повысить качество дизайна и типографики. `,
-    attachmentIcon: paperClip,
-    attachmentText: 'Подборка актуальных материалов по теме',
-  },
-  {
-    title: 'Подбор шрифтов для заголовков и текста',
-    description: `Умение выбирать и применять правильные шрифты - важный навык,
-    который может значительно повысить качество дизайна и типографики. `,
-    attachmentIcon: paperClip,
-    attachmentText: 'Подборка актуальных материалов по теме',
-  },
-  {
-    title: 'Подбор шрифтов для заголовков и текста',
-    description: `Умение выбирать и применять правильные шрифты - важный навык,
-    который может значительно повысить качество дизайна и типографики. `,
-    attachmentIcon: paperClip,
-    attachmentText: 'Подборка актуальных материалов по теме',
-  },
-  {
-    title: 'Подбор шрифтов для заголовков и текста',
-    description: `Умение выбирать и применять правильные шрифты - важный навык,
-    который может значительно повысить качество дизайна и типографики. `,
-    attachmentIcon: paperClip,
-    attachmentText: 'Подборка актуальных материалов по теме',
-  },
-  {
-    title: 'Подбор шрифтов для заголовков и текста',
-    description: `Умение выбирать и применять правильные шрифты - важный навык,
-    который может значительно повысить качество дизайна и типографики. `,
-    attachmentIcon: paperClip,
-    attachmentText: 'Подборка актуальных материалов по теме',
-  },
-]
-
 export const arrowBack = arrow_back;
 
 export const skill = {
@@ -288,10 +187,88 @@ export const logoSmall = logo_small;
 export const externalLink = external_link;
 
 export const skillsDB = [
-  { label: 'Шрифты для заголовков', id: 1994 },
-  { label: 'Шрифты для основного текста', id: 1972 },
-  { label: 'Парные шрифты', id: 1974 },
-  { label: 'Шрифты с засечками', id: 2008 },
+  {
+    groupId: '123',
+    groupName: 'Компоненты в Figma',
+    skillId: '324',
+    title: 'Подбор шрифтов для заголовков',
+    shortTitle: 'шрифты',
+    descriptionShort: `Умение выбирать и применять правильные шрифты - важный навык, который может
+      значительно повысить качество дизайна и типографики.`,
+    descriptionFull: `Умение выбирать и применять правильные шрифты - важный навык, который может
+      значительно повысить качество дизайна и типографики. Ведь шрифт не только отображает текст,
+      но и передает настроение, стиль и эстетику.`,
+    status: 'Рекомендуемый',
+    isSoft: false,
+    isHard: true,
+    resources: [
+      {
+        title: 'Кто лучше подбирает шрифтовые пары: AI или дизайнеры?',
+        source: 'Medium',
+        duration: 5,
+        completed: false,
+      },
+      {
+        title: 'Типографика: последние тренды',
+        source: 'Muzli',
+        duration: 8,
+        completed: false,
+      },
+      {
+        title: '8 хитростей, которые сделают вашу типографику более читаемой',
+        source: 'LinkedIn',
+        duration: 12,
+        completed: false,
+      },
+      {
+        title: '2023 - год типографики, ориентированный на пользователей',
+        source: 'LinkedIn',
+        duration: 12,
+        completed: false,
+      }
+    ],
+  },
+  {
+    groupId: '123',
+    groupName: 'Компоненты в Figma',
+    skillId: '326',
+    title: 'Подбор шрифтов для заголовков и текста',
+    shortTitle: 'шрифты',
+    descriptionShort: `Умение выбирать и применять правильные шрифты - важный навык, который может
+      значительно повысить качество дизайна и типографики.`,
+    descriptionFull: `Умение выбирать и применять правильные шрифты - важный навык, который может
+      значительно повысить качество дизайна и типографики. Ведь шрифт не только отображает текст,
+      но и передает настроение, стиль и эстетику.`,
+    status: 'Рекомендуемый',
+    isSoft: false,
+    isHard: true,
+    resources: [
+      {
+        title: 'Кто лучше подбирает шрифтовые пары: AI или дизайнеры?',
+        source: 'Medium',
+        duration: 5,
+        completed: false,
+      },
+      {
+        title: 'Типографика: последние тренды',
+        source: 'Muzli',
+        duration: 8,
+        completed: false,
+      },
+      {
+        title: '8 хитростей, которые сделают вашу типографику более читаемой',
+        source: 'LinkedIn',
+        duration: 12,
+        completed: false,
+      },
+      {
+        title: '2023 - год типографики, ориентированный на пользователей',
+        source: 'LinkedIn',
+        duration: 12,
+        completed: false,
+      }
+    ],
+  }
 ];
 
 export const libraryDB = [
@@ -316,3 +293,4 @@ export const libraryDB = [
     titles: [ 'Как развивать продукт после релиза', 'Продукт и его процесы', 'Дизайн Системы для продукта', 'Продукт и его процесы', ],
   },
 ]
+

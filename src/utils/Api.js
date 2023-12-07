@@ -19,32 +19,16 @@ class Api {
     }
   }
 
-  register(data) {
-    return fetch(`${this._url}/signup`, {
+  login(username, password) {
+    return fetch(`${this._url}/auth/jwt/create`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        "name": data.name,
-        "email": data.email,
-        "password": data.password,
-      })
-    })
-    .then(this._checkServerResponse)
-  };
-
-  login(email, password) {
-    return fetch(`${this._url}/signin`, {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
+        "username": username,
         "password": password,
-        "email": email
       })
     })
     .then(this._checkServerResponse)
@@ -129,8 +113,21 @@ class Api {
       })
     .then(this._checkServerResponse)
   }
+
+
+  getUserSkills() {
+    return fetch(`${this._url}/skills`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this._getToken()}`,
+      },
+    })
+    .then(this._checkServerResponse)
+  }
+  
 }; 
 
 export const api = new Api({
-  baseUrl: '',
+  baseUrl: 'http://62.84.123.59/api/v1',
 }); 

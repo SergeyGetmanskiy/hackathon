@@ -1,8 +1,7 @@
-import * as React from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
 import { tabsPanelItems } from '../../../constants/constants'
@@ -12,7 +11,6 @@ import Library from '../../Library/Library';
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
-
   return (
     <div
       role="tabpanel"
@@ -43,10 +41,11 @@ function a11yProps(index) {
   };
 }
 
-export default function TabsPanel({ skills, setSkills }) {
-  const [value, setValue] = React.useState(0);
+export default function TabsPanel() {
 
-  const handleChange = (event, newValue) => {
+  const [value, setValue] = useState(0);
+
+  const handleChange = (e, newValue) => {
     setValue(newValue);
   };
 
@@ -73,7 +72,7 @@ export default function TabsPanel({ skills, setSkills }) {
           ))}
         </Tabs>
       </Box>
-      <CustomTabPanel value={value} index={0} children={<Board skills={skills} setSkills={setSkills}/>} />
+      <CustomTabPanel value={value} index={0} children={<Board />} />
       <CustomTabPanel value={value} index={1} children={<DashBoard />} />
       <CustomTabPanel value={value} index={2} children={<Library />}/>
     </Box>
