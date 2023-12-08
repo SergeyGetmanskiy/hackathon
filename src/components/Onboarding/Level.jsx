@@ -1,9 +1,17 @@
 import { Button, Container, Paper, Stack, Typography } from "@mui/material";
 import { useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
-function Level({ handleBack, handleNext }) {
+import {
+    nextStep,
+    backStep,
+} from '../Onboarding/Header/HeaderStepper/stepperSlice';
+
+function Level() {
     const location = useLocation();
     const yourLevelPage = (location.pathname === '/onboarding/your-level');
+
+    const dispatch = useDispatch();
 
     const yourLevelDataCard = [
         'Не знаю свой уровень',
@@ -49,7 +57,7 @@ function Level({ handleBack, handleNext }) {
                 })}
             </Stack>
             <Stack direction='row' spacing='20px'>
-                {yourLevelPage ? '' : <Button onClick={handleBack} variant='outlined' href='/onboarding/your-level' sx={{
+                {yourLevelPage ? '' : <Button onClick={() => dispatch(backStep())} variant='outlined' href='/onboarding/your-skills' sx={{
                     width: '183px',
                     p: '15px 0',
                     fontSize: '16px',
@@ -61,7 +69,7 @@ function Level({ handleBack, handleNext }) {
                     borderColor: '#1D6BF3',
                     bgcolor: '#fff',
                 }}>Назад</Button>}
-                <Button variant='contained' onClick={handleNext} href="" sx={{
+                <Button variant='contained' href={yourLevelPage ? '/onboarding/your-skills' : '/onboarding/desired-skills'}  onClick={() => dispatch(nextStep())} sx={{
                 width: '183px',
                 p: '15px 0',
                 fontSize: '16px',
@@ -74,8 +82,6 @@ function Level({ handleBack, handleNext }) {
                 bgcolor: '#5A9BFF',
             }}>Далее</Button>
             </Stack>
-            
-            
         </Container >
     );
 };

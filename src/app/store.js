@@ -2,7 +2,8 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import onboardingReducer from "../features/onboarding/onboardingSlice";
 import skillsReducer from '../features/skills/skillsSlice'
-import stepperReducer from '../components/Stepper/stepperSlice';
+import stepperReducer from '../components/Onboarding/Header/HeaderStepper/stepperSlice';
+
 
 
 const store = configureStore({

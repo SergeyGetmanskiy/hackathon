@@ -16,6 +16,11 @@ import Skill from './components/Skill/Skill';
 
 import { skillsDB } from './constants/constants';
 
+import Header from './components/Onboarding/Header/Header';
+import WelcomePage from './components/Onboarding/WelcomePage';
+import Level from './components/Onboarding/Level';
+import Skills from './components/Onboarding/Skills';
+
 function App() {
 
   const [loggedIn, setLoggedIn] = useState(false);

@@ -1,9 +1,17 @@
 import { Button, Checkbox, Container, Grid, Paper, Stack, SvgIcon, Typography } from "@mui/material";
 import { useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
-function Skills({ handleBack, handleNext }) {
+import {
+    nextStep,
+    backStep,
+} from '../Onboarding/Header/HeaderStepper/stepperSlice';
+
+function Skills() {
     const location = useLocation();
     const yourSkillsPage = (location.pathname === '/onboarding/your-skills');
+
+    const dispatch = useDispatch();
 
     const data = [
         'Правило дальнего ближнего',
@@ -34,7 +42,7 @@ function Skills({ handleBack, handleNext }) {
                 lineHeight: '24px',
                 textAlign: 'center',
                 color: '#1A1B22',
-            }}>Давай определим то, что ты уже знаешь.</Typography>
+            }}>{yourSkillsPage ? 'Давай определим то, что ты уже знаешь.' : 'Выбери навыки которых тебе не хватает и ты хотел бы их прокачать'}</Typography>
             <Grid container rowGap='20px' columnGap='20px' sx={{ width: '796px', p: '52px 0 152px 0' }}>
                 {data.map((card, index) => {
                     return <Paper key={index} sx={{
@@ -61,7 +69,7 @@ function Skills({ handleBack, handleNext }) {
                 })}
             </Grid>
             <Stack direction='row' spacing='20px'>
-                <Button variant='outlined' onClick={handleBack} href='/onboarding/your-level' sx={{
+                <Button variant='outlined' onClick={() => dispatch(backStep())} href={yourSkillsPage ? '/onboarding/your-level' : '/onboarding/desired-level'} sx={{
                     width: '183px',
                     p: '15px 0',
                     fontSize: '16px',
@@ -73,7 +81,7 @@ function Skills({ handleBack, handleNext }) {
                     borderColor: '#1D6BF3',
                     bgcolor: '#fff',
                 }}>Назад</Button>
-                <Button variant='contained' onClick={handleNext} href={yourSkillsPage ? '/onboarding/desired-level' : '/dashboard'} sx={{
+                <Button variant='contained' onClick={() => dispatch(nextStep())} href={yourSkillsPage ? '/onboarding/desired-level' : '/dashboard'} sx={{
                     width: '183px',
                     p: '15px 0',
                     fontSize: '16px',
