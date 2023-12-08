@@ -6,9 +6,6 @@ import { api } from './utils/Api';
 import { convertUserSkillsData } from './utils/HandleServerData';
 import { initialSkillsAdded } from './features/skills/skillsSlice';
 
-
-import Onboarding from './components/Onboarding/Onboarding';
-import LevelOrSkillsPage from './components/Onboarding/LevelOrSkillsPage';
 import Main from './components/Main/Main';
 import TabsPanel from './components/Main/TabsPanel/TabsPanel';
 import NewSkill from './components/NewSkill/NewSkill';
@@ -89,7 +86,7 @@ function App() {
             <Route path='user-level' element={<Level />} />
             <Route path='user-skills' element={<Skills />} />
             <Route path='goal-level' element={<Level />} />
-            <Route path='goal-skills' element={<Skills setIsOnboardingComplete={setIsOnboardingComplete} />} />
+            <Route path='goal-skills' element={<Skills setIsOnboardingComplete={isOnboardingComplete} />} />
           </Route>
         </Routes>
     );

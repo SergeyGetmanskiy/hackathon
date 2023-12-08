@@ -13,7 +13,6 @@ const skillCategory = 'Компоненты в Figma'
 export default function Board() {
 
   const skills = useSelector(state => state.skills);
-  console.log(skills)
 
   const skillsToLearn = skills.filter((skill) => skill.resources.every((resource) => !resource.completed));
   const skillsInProgress = skills.filter((skill) => 

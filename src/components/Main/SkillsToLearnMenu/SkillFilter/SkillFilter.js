@@ -12,19 +12,23 @@ import ListItemButton from '@mui/material/ListItemButton';
 
 import SkillCard from '../SkillCard/SkillCard'
 
-// import { skills } from '../../../../constants/constants'
-
 const tabsPanelItems = [ 'Все', 'Мягкие', 'Жесткие' ]
 
 function SkillsList(props) {
 
-  console.log(props.cards)
+  const skillGroups = Object.entries(props.cards          // Создаем массив групп навыков с данными о кол-ве всех навыков в группе
+    .map((card) => card.groupName)
+    .reduce((acc, value) => ({
+      ...acc,
+      [value]: (acc[value] || 0) + 1
+    }), {}));
+
   return (
     <List sx={{ display: 'flex', flexDirection: 'column', gap: '20px', p: 0 }}>
-      {props.cards.map((item, index) => (
+      {skillGroups.map((item, index) => (
         <ListItem key={index} sx={{ p: 0,  }}>
           <ListItemButton sx={{ p: 0 }} onClick={props.onClick}>
-            <SkillCard title={item.groupName} length={props.cards.length} />
+            <SkillCard title={item[0]} length={item[1]} />
           </ListItemButton>
         </ListItem>
       ))}
@@ -78,7 +82,6 @@ export default function SkillFilter({ onClick }) {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    console.log(value)
   };
 
   const handleClick = () => {
