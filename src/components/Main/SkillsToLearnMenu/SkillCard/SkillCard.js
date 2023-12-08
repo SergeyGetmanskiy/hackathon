@@ -4,7 +4,7 @@ import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
 
 
-export default function SkillCard({ title }) {
+export default function SkillCard({ title, length }) {
   return (
     <Card sx={{ width: '242px', bgcolor: 'black.black700', py: '23px', px:'21px', borderRadius: '10px',
     '&:hover': {
@@ -21,7 +21,7 @@ export default function SkillCard({ title }) {
         <Box sx={{ display: 'flex', width: '22px', height: '16px', borderRadius: '4px', bgcolor: 'black.black100', alignItems: 'center', justifyContent: 'center' }}>
           <Box sx={{ display: 'flex' }}>
             <Typography variant='caption3-regular' padding={0}>
-              {title.length}
+              {length}
             </Typography>
           </Box>
         </Box>
