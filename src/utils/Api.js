@@ -114,9 +114,8 @@ class Api {
     .then(this._checkServerResponse)
   }
 
-
-  getUserSkills() {
-    return fetch(`${this._url}/skills`, {
+  getUserSkills(page) {
+    return fetch(`${this._url}/userskills/?page=${page}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -125,7 +124,6 @@ class Api {
     })
     .then(this._checkServerResponse)
   }
-  
 }; 
 
 export const api = new Api({

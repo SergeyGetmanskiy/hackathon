@@ -6,12 +6,15 @@ const skillsSlice = createSlice({
   name: 'skills',
   initialState,
   reducers: {
+    initialSkillsAdded(state, action) {
+      return action.payload
+    },
     skillAdded(state, action) {
       state.push(action.payload)
     }
   }
 })
 
-export const { skillAdded } = skillsSlice.actions
+export const { initialSkillsAdded, skillAdded } = skillsSlice.actions
 
 export default skillsSlice.reducer
