@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
+import { useSelector } from 'react-redux';
+
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -11,17 +12,19 @@ import ListItemButton from '@mui/material/ListItemButton';
 
 import SkillCard from '../SkillCard/SkillCard'
 
-import { skills } from '../../../../constants/constants'
+// import { skills } from '../../../../constants/constants'
 
 const tabsPanelItems = [ 'Все', 'Мягкие', 'Жесткие' ]
 
 function SkillsList(props) {
+
+  console.log(props.cards)
   return (
     <List sx={{ display: 'flex', flexDirection: 'column', gap: '20px', p: 0 }}>
       {props.cards.map((item, index) => (
         <ListItem key={index} sx={{ p: 0,  }}>
           <ListItemButton sx={{ p: 0 }} onClick={props.onClick}>
-            <SkillCard title={item.name} />
+            <SkillCard title={item.groupName} length={props.cards.length} />
           </ListItemButton>
         </ListItem>
       ))}
@@ -64,10 +67,12 @@ function a11yProps(index) {
 
 export default function SkillFilter({ onClick }) {
 
+  const skills = useSelector(state => state.skills);
+
   const navigate = useNavigate();
   
-  const softSkills = skills.filter((item) => item.isHard === false);
-  const hardSkills = skills.filter((item) => item.isHard === true);
+  const softSkills = skills.filter((item) => item.type === 'soft');
+  const hardSkills = skills.filter((item) => item.type === 'hard');
   
   const [value, setValue] = useState(0);
 

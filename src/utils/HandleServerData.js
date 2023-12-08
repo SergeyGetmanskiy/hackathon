@@ -15,7 +15,7 @@ export function convertUserSkillsData(serverResponse) {
           title: i.description,
           source: i.url,
           duration: i.learning_time,
-          completed: false,
+          completed: i.completed,
         }
       })
     }

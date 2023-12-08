@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { api } from './utils/Api';
+import { convertUserSkillsData } from './utils/HandleServerData';
+import { initialSkillsAdded } from './features/skills/skillsSlice';
+
 
 import Onboarding from './components/Onboarding/Onboarding';
 import LevelOrSkillsPage from './components/Onboarding/LevelOrSkillsPage';
@@ -11,6 +14,8 @@ import TabsPanel from './components/Main/TabsPanel/TabsPanel';
 import NewSkill from './components/NewSkill/NewSkill';
 import Skill from './components/Skill/Skill';
 
+import { skillsDB } from './constants/constants';
+
 function App() {
 
   const [loggedIn, setLoggedIn] = useState(false);
@@ -18,6 +23,8 @@ function App() {
   const isOnboardingComplete = useSelector(state => state.onboarding)
   
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   useEffect(() => {     
     const jwt = localStorage.getItem('jwt');
@@ -37,6 +44,28 @@ function App() {
       })
     }  
   }, []) 
+
+  useEffect(() => {                             // получаем данные о навыках пользователя с сервера после прохождения Онбординга
+    let page = 1;
+    let userSkills = [];
+    function getPaginatedData() {
+      api.getUserSkills(page)
+      .then((res) => {
+        if(res.next !== null) {
+          userSkills = userSkills.concat(convertUserSkillsData(res));
+          page ++;
+          getPaginatedData();
+        } else {
+          console.log(userSkills)
+          dispatch(initialSkillsAdded(userSkills));
+        }
+        })
+      .catch((err) => {
+        console.log(err);
+      })  
+    }    
+    getPaginatedData()
+  }, [])
 
   if(loggedIn) {
     return (
