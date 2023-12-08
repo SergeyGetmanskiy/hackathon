@@ -7,19 +7,6 @@ function getResponseData(res) {
     return res.ok ? res.json() : Promise.reject(`${res.status} ${res.statusText}`)
 };
 
-export function dashboard() {
-    return fetch(`${baseUrl}/dashboard`, {
-        method: 'GET',
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`,
-        },
-    })
-        .then(res => {
-            return getResponseData(res);
-        })
-};
-
 export function addInitialLevelUser(initialLevel) {
     return fetch(`${baseUrl}/level`, {
         method: 'POST',

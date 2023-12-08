@@ -26,64 +26,64 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
   const isOnboardingComplete = useSelector(state => state.onboarding)
-  
+
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
-  useEffect(() => {     
+  useEffect(() => {
     const jwt = localStorage.getItem('jwt');
-    if(!jwt) {
+    if (!jwt) {
       return
     } else {
       api.login('admin', 'adminpassword')
-      .then((res) => {
-        setLoggedIn(true);
-        localStorage.setItem('jwt', res.access);
-        if(!isOnboardingComplete) {
-          navigate('/onboarding', { replace: true })
-        } 
+        .then((res) => {
+          setLoggedIn(true);
+          localStorage.setItem('jwt', res.access);
+          if (!isOnboardingComplete) {
+            navigate('/onboarding', { replace: true })
+          }
         })
-      .catch((err) => {
-        console.log(err);
-      })
-    }  
-  }, []) 
+        .catch((err) => {
+          console.log(err);
+        })
+    }
+  }, [])
 
   useEffect(() => {                             // получаем данные о навыках пользователя с сервера после прохождения Онбординга
     let page = 1;
     let userSkills = [];
     function getPaginatedData() {
       api.getUserSkills(page)
-      .then((res) => {
-        if(res.next !== null) {
-          userSkills = userSkills.concat(convertUserSkillsData(res));
-          page ++;
-          getPaginatedData();
-        } else {
-          console.log(userSkills)
-          dispatch(initialSkillsAdded(userSkills));
-        }
+        .then((res) => {
+          if (res.next !== null) {
+            userSkills = userSkills.concat(convertUserSkillsData(res));
+            page++;
+            getPaginatedData();
+          } else {
+            console.log(userSkills)
+            dispatch(initialSkillsAdded(userSkills));
+          }
         })
-      .catch((err) => {
-        console.log(err);
-      })  
-    }    
+        .catch((err) => {
+          console.log(err);
+        })
+    }
     getPaginatedData()
   }, [])
 
-  if(loggedIn) {
+  if (loggedIn) {
     return (
       isOnboardingComplete ?
-      <Routes>
-        <Route path='/' element={ <Main />}>
-          <Route path='skills' element={<TabsPanel />} />
-          <Route path='add-skill' element={<NewSkill />} />
-          <Route path='skill' element={<Skill />} />
-        </Route>
-      </Routes>
-      :
-         <Routes>
+        <Routes>
+          <Route path='/' element={<Main />}>
+            <Route path='skills' element={<TabsPanel />} />
+            <Route path='add-skill' element={<NewSkill />} />
+            <Route path='skill' element={<Skill />} />
+          </Route>
+        </Routes>
+        :
+        <Routes>
           <Route path='onboarding' element={<Header />}>
             <Route index element={<WelcomePage />} />
             <Route path='user-level' element={<Level />} />
@@ -92,7 +92,8 @@ function App() {
             <Route path='goal-skills' element={<Skills setIsOnboardingComplete={setIsOnboardingComplete} />} />
           </Route>
         </Routes>
-  );
+    );
+  };
 };
 };
 
