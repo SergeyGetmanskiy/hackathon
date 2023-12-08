@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { api } from './utils/onboarding';
+import { api } from './utils/Api';
 import { convertUserSkillsData } from './utils/HandleServerData';
 import { initialSkillsAdded } from './features/skills/skillsSlice';
 

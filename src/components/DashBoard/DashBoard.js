@@ -1,7 +1,7 @@
 import { skillsForDashboard, progress, recommendations } from '../../constants/constants';
 import { useEffect, useState } from 'react';
 
-import { api } from '../../utils/onboarding';
+import { api } from '../../utils/Api';
 
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
