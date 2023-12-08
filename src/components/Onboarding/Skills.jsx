@@ -13,7 +13,7 @@ import {
     addInitialSkillsUser,
     getGoalSkillsUser,
     addGoalSkillsUser,
-} from '../../utils/api';
+} from '../../utils/onboarding';
 
 
 function Skills({ setIsOnboardingComplete }) {

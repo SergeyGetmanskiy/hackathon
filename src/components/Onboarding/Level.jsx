@@ -13,7 +13,7 @@ import {
     dataGoalLevelUser,
 } from '../../constants/constants';
 
-import { addInitialLevelUser, addGoalLevelUser } from "../../utils/api";
+import { addInitialLevelUser, addGoalLevelUser } from "../../utils/onboarding";
 
 function Level() {
     const location = useLocation();
