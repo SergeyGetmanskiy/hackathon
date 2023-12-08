@@ -90,7 +90,7 @@ const theme = createTheme({
           font-style: normal;
           font-display: swap;
           font-weight: 400;
-          src: local('YS Display'), url(${YSdisplayRegular}) format('ttf');
+          src: url(${YSdisplayRegular}) format('ttf');
           unicodeRange: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF;
         }
         @font-face {
@@ -98,7 +98,7 @@ const theme = createTheme({
           font-style: normal;
           font-display: swap;
           font-weight: 500;
-          src: local('YS Display'), url(${YSdisplayMedium}) format('ttf');
+          src: url(${YSdisplayMedium}) format('ttf');
           unicodeRange: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF;
         }
         @font-face {
@@ -125,6 +125,43 @@ const theme = createTheme({
           textTransform: 'none',
         },
       },
+    },
+    MuiPaper: {
+      variants: [
+        {
+          props: { variant: 'buttonSelectLevel' },
+          style: {
+            padding: '40px 0',
+            width: '386px',
+            textAlign: 'center',
+            fontFamily: 'YS Display',
+            fontSize: '16px',
+            fontWeight: '500',
+            lineHeight: '20px',
+            border: 'none',
+            boxShadow: '0px 4px 6px 0px rgba(221, 224, 228, 0.6)',
+          },
+        },
+        {
+          props: { variant: 'buttonSelectSkill' },
+          style: {
+            padding: '12px 12px 28px 12px',
+            display: 'flex',
+            justifyContent: 'space-between',
+            width: '184px',
+            height: '100px',
+            fontSize: '14px',
+            fontWeight: '500',
+            lineHeight: '20px',
+            color: '#1C1D22',
+            boxSizing: 'border-box',
+            textAlign: 'start',
+            fontFamily: 'YS Display',
+            border: 'none',
+            boxShadow: '0px 4px 6px 0px rgba(221, 224, 228, 0.6)',
+          },
+        },
+      ],
     },
     MuiStep: {
       styleOverrides: {
@@ -299,7 +336,7 @@ const theme = createTheme({
             fontFamily: 'YS Display',
             fontWeight: 400,
             fontSize: 9,
-            lineHeight: 11/9,
+            lineHeight: 11 / 9,
           },
         },
         {
@@ -308,7 +345,7 @@ const theme = createTheme({
             fontFamily: 'YS Display',
             fontWeight: 500,
             fontSize: 9,
-            lineHeight: 11/9,
+            lineHeight: 11 / 9,
           },
         },
         {
@@ -353,7 +390,7 @@ const theme = createTheme({
             fontFamily: 'YS Text',
             fontWeight: 400,
             fontSize: 8,
-            lineHeight: 10/8,
+            lineHeight: 10 / 8,
           },
         },
         {
@@ -362,7 +399,7 @@ const theme = createTheme({
             fontFamily: 'YS Text',
             fontWeight: 500,
             fontSize: 8,
-            lineHeight: 10/8,
+            lineHeight: 10 / 8,
           },
         },
       ],

@@ -301,3 +301,17 @@ export const steps = [
   'К чему стремишься',
   'Навыки на прокачку',
 ];
+
+export const dataInitailLevelUser = [
+  'Не знаю свой уровень',
+  'Junior',
+  'Middle',
+  'Middle +',
+];
+
+export const dataGoalLevelUser = [
+  'Junior',
+  'Middle',
+  'Middle +',
+  'Senior'
+];
