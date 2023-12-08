@@ -83,16 +83,16 @@ function App() {
         </Route>
       </Routes>
       :
-      <Routes>
-        <Route path='/onboarding' element={<Onboarding />}>
-          <Route path='your-level' element={<LevelOrSkillsPage />} />
-          <Route path='your-skills' element={<LevelOrSkillsPage />} />
-          <Route path='desired-level' element={<LevelOrSkillsPage />} />
-          <Route path='desired-skills' element={<LevelOrSkillsPage />} />
-        </Route>
-      </Routes>
-    );
-  }
-}
+         <Routes>
+          <Route path='onboarding' element={<Header />}>
+            <Route index element={<WelcomePage />} />
+            <Route path='user-level' element={<Level />} />
+            <Route path='user-skills' element={<Skills />} />
+            <Route path='goal-level' element={<Level />} />
+            <Route path='goal-skills' element={<Skills setIsOnboardingComplete={setIsOnboardingComplete} />} />
+          </Route>
+        </Routes>
+  );
+};
 
 export default App;

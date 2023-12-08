@@ -310,3 +310,17 @@ export const steps = [
   'Навыки на прокачку',
 ];
 
+
+export const dataInitailLevelUser = [
+  'Не знаю свой уровень',
+  'Junior',
+  'Middle',
+  'Middle +',
+];
+
+export const dataGoalLevelUser = [
+  'Junior',
+  'Middle',
+  'Middle +',
+  'Senior'
+];

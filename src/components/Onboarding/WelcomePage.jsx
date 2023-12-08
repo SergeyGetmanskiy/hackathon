@@ -2,8 +2,11 @@ import { Box } from "@mui/system";
 import { Button, CardMedia, Stack, Typography } from '@mui/material';
 
 import { welcomeImage } from "../../constants/constants";
+import { useNavigate } from "react-router-dom";
 
 function WelcomePage() {
+
+    const navigate = useNavigate();
 
     return (
         <Stack direction='row' spacing='90px' component='main' sx={{
@@ -32,7 +35,7 @@ function WelcomePage() {
                         borderColor: '#1D6BF3',
                         bgcolor: '#fff',
                     }}>Не интересно</Button>
-                    <Button variant='contained' href='/onboarding/your-level' sx={{
+                    <Button variant='contained' onClick={() => navigate('/onboarding/user-level')} sx={{
                         width: '183px',
                         p: '15px 0',
                         fontSize: '16px',
