@@ -1,17 +1,22 @@
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux'
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
 import { nanoid } from '@reduxjs/toolkit'
 
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Box, Button, Typography, Divider } from '@mui/material';
 
-import { skillsDB, arrowBack } from '../../constants/constants';
-
+import { convertNewSkillsData } from '../../utils/HandleServerData';
+import { initialNewSkillsAdded } from '../../features/skills/newSkillsSlice';
+import { api } from '../../utils/Api';
+import { arrowBack } from '../../constants/constants';
 import { skillAdded } from '../../features/skills/skillsSlice';
 
 export default function NewSkill() {
+
+  const skillsDB = useSelector(state => state.newSkills);
+  console.log(skillsDB);
 
   const [isSubmitBtnActive, setIsSubmitBtnActive] = useState(false);
   const [valueSelected, setValueSelected] = useState();
@@ -32,6 +37,31 @@ export default function NewSkill() {
     dispatch(skillAdded(skillsDB.find(item => item.skillId === valueSelected)))
     navigate('../skills')
   }
+
+  useEffect(() => {                             // получаем данные с сервера о всех навыках, доступных для данного пользователя
+    let page = 1;
+    let newSkills = [];
+    function getPaginatedData() {
+      api.getNewSkills(page)
+        .then((res) => {
+          console.log(res);
+          if (res.next === null) {
+            newSkills = newSkills.concat(convertNewSkillsData(res));
+            console.log(newSkills)
+            return dispatch(initialNewSkillsAdded(newSkills));
+          } else {
+            newSkills = newSkills.concat(convertNewSkillsData(res));
+            page++;
+            getPaginatedData();
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    }
+    getPaginatedData()
+  }, [])
+
 
   return (
     <Box sx={{ m: '20px', width: '948px', height: '100vh', bgcolor: 'white.main', borderRadius: '10px' }}>

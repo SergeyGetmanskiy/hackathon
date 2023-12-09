@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
@@ -10,7 +10,9 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 
-import SkillCard from '../SkillCard/SkillCard'
+import SkillCard from '../SkillCard/SkillCard';
+
+import { setSkillsGroupName } from '../../../../features/skills/skillsGroupSlice';
 
 const tabsPanelItems = [ 'Все', 'Мягкие', 'Жесткие' ]
 
@@ -23,11 +25,18 @@ function SkillsList(props) {
       [value]: (acc[value] || 0) + 1
     }), {}));
 
+  const dispatch = useDispatch();
+
+  const handleClick = (item) => {
+    dispatch(setSkillsGroupName(item[0]));
+    props.onClick();
+  }
+
   return (
     <List sx={{ display: 'flex', flexDirection: 'column', gap: '20px', p: 0 }}>
       {skillGroups.map((item, index) => (
         <ListItem key={index} sx={{ p: 0,  }}>
-          <ListItemButton sx={{ p: 0 }} onClick={props.onClick}>
+          <ListItemButton sx={{ p: 0 }} onClick={() => handleClick(item)}>
             <SkillCard title={item[0]} length={item[1]} />
           </ListItemButton>
         </ListItem>
@@ -72,6 +81,7 @@ function a11yProps(index) {
 export default function SkillFilter({ onClick }) {
 
   const skills = useSelector(state => state.skills);
+  
 
   const navigate = useNavigate();
   

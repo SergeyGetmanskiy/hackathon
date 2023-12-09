@@ -124,8 +124,20 @@ class Api {
       })
       .then(this._checkServerResponse)
     }
-  }; 
-  
+
+    getNewSkills(page) {
+      return fetch(`${this._url}/skills/?page=${page}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this._getToken()}`,
+        },
+      })
+      .then(this._checkServerResponse)
+    }
+
+  };
+   
   export const api = new Api({
     baseUrl: 'http://62.84.123.59/api/v1',
   }); 

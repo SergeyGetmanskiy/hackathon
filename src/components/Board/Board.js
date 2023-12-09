@@ -8,11 +8,10 @@ import { Button } from '@mui/material';
 
 import Column from './Column/Column';
 
-const skillCategory = 'Компоненты в Figma'
-
 export default function Board() {
 
-  const skills = useSelector(state => state.skills);
+  const skillGroupName = useSelector(state => state.skillsGroup);
+  const skills = useSelector(state => state.skills).filter((skill) => skill.groupName === skillGroupName);
 
   const skillsToLearn = skills.filter((skill) => skill.resources.every((resource) => !resource.completed));
   const skillsInProgress = skills.filter((skill) => 
@@ -32,7 +31,7 @@ export default function Board() {
                 <Typography variant='body2-medium' sx={{ textTransform: 'none', color: 'white' }}>+ &nbsp;&nbsp; Добавить навык</Typography>
               </Button>
             </Box>
-            <Typography variant='body2-medium'>{skillCategory}</Typography>
+            <Typography variant='body2-medium'>{skillGroupName}</Typography>
           </Card>
         </Grid>
         <Grid item xs={4}>

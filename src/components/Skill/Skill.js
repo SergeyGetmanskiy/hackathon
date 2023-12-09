@@ -1,5 +1,9 @@
 import {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 import { Box, Button, Divider, Link, Typography, SvgIcon } from '@mui/material';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
@@ -8,17 +12,31 @@ import { arrowBack } from '../../constants/constants';
 import { logoSmall } from '../../constants/constants';
 import { externalLink } from '../../constants/constants';
 
-import { skill } from '../../constants/constants';
-import { useNavigate } from 'react-router-dom';
-
 export default function Skill() {
 
   const navigate = useNavigate();
+  const skill = useSelector(state => state.skill);
+
+  const getStatusColor = () => {
+    if(skill.status === 'start') {
+      return 'green.light'
+    } else if(skill.status === 'middle') {
+      return 'purple.light' 
+    } else if(skill.status === 'senior') {
+      return 'orange.light' 
+    } else {
+      return '#F1F6FF'
+    }
+  }  
 
   const [checked, setChecked] = useState(false);
 
   const handleChange = (e) => {
     setChecked(e.target.checked);
+  }
+
+  const handleDelete = (e) => {
+
   }
 
   return (
@@ -34,13 +52,13 @@ export default function Skill() {
           {skill.title}
         </Typography>
         <Typography variant='body2-regular' paragraph sx={{ color: 'black.black500' }}>
-          {skill.description}
+          {skill.descriptionFull}
         </Typography>
         <Box sx={{ width: '100%', display: 'flex', flexDirection:'column', gap: '12px' }}>
-          {skill.articles.map((article, index) => (
+          {skill.resources.map((resource, index) => (
             <FormGroup key={index} sx={{ gap: '2px' }} >
               <FormControlLabel 
-                control={<Checkbox value={checked} onChange={handleChange} id={article.title}
+                control={<Checkbox value={checked} onChange={handleChange} id={resource.title}
                 checkedIcon={
                   <SvgIcon fontSize="small" >{
                     <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -58,9 +76,9 @@ export default function Skill() {
                   }
                   </SvgIcon>
                 }/>} 
-                label={<Typography variant='body2-regular'>{article.title}</Typography>} />
+                label={<Typography variant='body2-regular'>{resource.title}</Typography>} />
               <Typography variant='body3-regular' sx={{ color: 'black.black500', ml: '30px' }}>
-                {`Статья на ${article.source} — ${article.duration} минут`}
+                {`Статья на ${resource.source} — ${resource.duration} минут`}
               </Typography>
             </FormGroup>
           ))}
@@ -73,7 +91,7 @@ export default function Skill() {
           <Box sx={{ display: 'flex', mr: '4px', alignItems: 'end' }}>
             <img src={logoSmall} alt='логотип'/>
             <Typography variant='body2-regular'>
-              {`Курс Яндекса по ${skill.yandexCourseTitle}`}
+              {`Курс Яндекса по ${skill.title}`}
             </Typography>
             <Link
               href="https://practicum.yandex.ru/"
@@ -91,11 +109,14 @@ export default function Skill() {
           alignItems: 'center',
           width: '122px',
           height: '26px',
-          bgcolor: '#F1F6FF',
+          bgcolor: `${getStatusColor()}`,
           borderRadius: '10px'
         }}>
           <Typography variant='body3-regular'>{skill.status}</Typography>
         </Box>
+        <Button onClick={handleDelete} sx={{ position: 'absolute', zIndex: 2,  minWidth: '20px', bottom: '-40px', left: '20px', color: 'black.black500' }}>
+          <DeleteOutlineIcon sx={{ height: '20px',  }} />
+        </Button>
       </Box>
     </Box>
   );
