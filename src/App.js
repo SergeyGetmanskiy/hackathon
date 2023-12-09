@@ -11,8 +11,6 @@ import TabsPanel from './components/Main/TabsPanel/TabsPanel';
 import NewSkill from './components/NewSkill/NewSkill';
 import Skill from './components/Skill/Skill';
 
-import { skillsDB } from './constants/constants';
-
 import Header from './components/Onboarding/Header/Header';
 import WelcomePage from './components/Onboarding/WelcomePage';
 import Level from './components/Onboarding/Level';

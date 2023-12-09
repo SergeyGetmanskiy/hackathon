@@ -18,6 +18,7 @@ export default function NewSkill() {
   const skillsDB = useSelector(state => state.newSkills);
   console.log(skillsDB);
 
+  const [loading, setLoading] = useState(false);
   const [isSubmitBtnActive, setIsSubmitBtnActive] = useState(false);
   const [valueSelected, setValueSelected] = useState();
 
@@ -38,6 +39,31 @@ export default function NewSkill() {
     navigate('../skills')
   }
 
+  const loadNewSkills = () => {
+    let page = 1;
+    let newSkills = [];
+    function getPaginatedData() {
+      api.getNewSkills(page)
+        .then((res) => {
+          console.log(res);
+          if (res.next === null) {
+            newSkills = newSkills.concat(convertNewSkillsData(res));
+            console.log(newSkills)
+            return dispatch(initialNewSkillsAdded(newSkills));
+          } else {
+            newSkills = newSkills.concat(convertNewSkillsData(res));
+            page++;
+            getPaginatedData();
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    }
+    getPaginatedData()
+  }
+
+/*
   useEffect(() => {                             // получаем данные с сервера о всех навыках, доступных для данного пользователя
     let page = 1;
     let newSkills = [];
@@ -60,7 +86,7 @@ export default function NewSkill() {
         })
     }
     getPaginatedData()
-  }, [])
+  }, [loading]) */
 
 
   return (
@@ -81,6 +107,7 @@ export default function NewSkill() {
           isOptionEqualToValue={(option, value) => option.id === value.id}
           sx={{ width: '300px' }}
           renderInput={(params) => <TextField {...params} label="Что ты хотел бы изучить..." />}
+          onInputChange={() => setLoading(true)}
           onChange={(e, newValue) => handleChange(e, newValue)}
           
         />
