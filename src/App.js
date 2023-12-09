@@ -6,9 +6,6 @@ import { api } from './utils/Api';
 import { convertUserSkillsData } from './utils/HandleServerData';
 import { initialSkillsAdded } from './features/skills/skillsSlice';
 
-
-import Onboarding from './components/Onboarding/Onboarding';
-import LevelOrSkillsPage from './components/Onboarding/LevelOrSkillsPage';
 import Main from './components/Main/Main';
 import TabsPanel from './components/Main/TabsPanel/TabsPanel';
 import NewSkill from './components/NewSkill/NewSkill';
@@ -56,13 +53,15 @@ function App() {
     function getPaginatedData() {
       api.getUserSkills(page)
         .then((res) => {
-          if (res.next !== null) {
+          console.log(res);
+          if (res.next === null) {
+            userSkills = userSkills.concat(convertUserSkillsData(res));
+            console.log(userSkills)
+            return dispatch(initialSkillsAdded(userSkills));
+          } else {
             userSkills = userSkills.concat(convertUserSkillsData(res));
             page++;
             getPaginatedData();
-          } else {
-            console.log(userSkills)
-            dispatch(initialSkillsAdded(userSkills));
           }
         })
         .catch((err) => {
@@ -89,7 +88,7 @@ function App() {
             <Route path='user-level' element={<Level />} />
             <Route path='user-skills' element={<Skills />} />
             <Route path='goal-level' element={<Level />} />
-            <Route path='goal-skills' element={<Skills setIsOnboardingComplete={setIsOnboardingComplete} />} />
+            <Route path='goal-skills' element={<Skills setIsOnboardingComplete={isOnboardingComplete} />} />
           </Route>
         </Routes>
     );
