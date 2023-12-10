@@ -16,7 +16,7 @@ import {
 
 import { toggle } from '../../features/onboarding/onboardingSlice';
 
-function Skills({ currentSpecialization, goalSpecialization, setCheckedCurrentSkills, setCheckedGoalSkills, checkedCurrentSkills, checkedGoalSkills, setIsOnboardingComplete }) {
+function Skills({ currentSpecialization, goalSpecialization, setCheckedCurrentSkills, setCheckedGoalSkills, checkedCurrentSkills, checkedGoalSkills, loadUserSkills }) {
     const location = useLocation();
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -53,7 +53,8 @@ function Skills({ currentSpecialization, goalSpecialization, setCheckedCurrentSk
         } else {
             handleSubmit(evt);
             dispatch(toggle(true));
-            navigate('../../skills');
+            loadUserSkills();
+            navigate('/');
         };
     };
 

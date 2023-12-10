@@ -19,7 +19,7 @@ import { getIdOfLevelUser } from './utils/onboarding';
 
 function App() {
 
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const [currentSpecialization, setCurrentSpecialization] = useState({});
   const [goalSpecialization, setGoalSpecialization] = useState({});
@@ -56,7 +56,7 @@ function App() {
     }
   }, [])
 
-  useEffect(() => {                             // получаем данные о навыках пользователя с сервера после прохождения Онбординга
+  const loadUserSkills = () => {            // получаем данные о навыках пользователя с сервера после прохождения Онбординга
     let page = 1;
     let userSkills = [];
     function getPaginatedData() {
@@ -77,7 +77,7 @@ function App() {
         })
     }
     getPaginatedData()
-  }, [])
+  }
 
   if (loggedIn) {
     return (
@@ -102,7 +102,7 @@ function App() {
               currentSpecialization={currentSpecialization.id}
               checkedCurrentSkills={checkedCurrentSkills}
               checkedGoalSkills={checkedGoalSkills}
-              setIsOnboardingComplete={isOnboardingComplete} />}
+              loadUserSkills={loadUserSkills} />}
             />
           </Route>
         </Routes>
