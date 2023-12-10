@@ -1,30 +1,27 @@
-const baseUrl = 'http://localhost:8000/api/v1';
+const baseUrl = 'http://62.84.123.59/api/v1';
 
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAyMDQ0OTI1LCJpYXQiOjE3MDIwMzg5MjUsImp0aSI6IjUxYTgxYmNjOTg1ZjRmODBhNGViNmRkNzM5NWRhNDgxIiwidXNlcl9pZCI6MX0.8CAJjtwIf2-1NZStyPpzitIsGLRrc8_q_bdzTr3k7gg';
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA4MjM1ODY5LCJpYXQiOjE3MDIyMzU4NjksImp0aSI6ImVjNGM2MTEyYmFmNDRjZGQ5ODgyYzhlYjA5NzZmODU2IiwidXNlcl9pZCI6MX0.gSwQjS8Tnx4QSTp4Odyu5_mFntnumOsjFAeMOuNyM0A';
 
 
 function getResponseData(res) {
     return res.ok ? res.json() : Promise.reject(`${res.status} ${res.statusText}`)
 };
 
-export function addInitialLevelUser(initialLevel) {
-    return fetch(`${baseUrl}/level`, {
-        method: 'POST',
+export function getIdOfCurrentLevelUser(currentLevel) {
+    return fetch(`${baseUrl}/levels/?name=Дизайнер&level_name=${currentLevel}`, {
+        method: 'GET',
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`,
         },
-        body: JSON.stringify({
-            level: initialLevel.level,
-        }),
     })
         .then(res => {
             return getResponseData(res);
         })
-};
+}; 
 
-export function getInitialSkillsUser() {
-    return fetch(`${baseUrl}/skills/`, {
+export function getInitialSkillsUser(dataOfCurrentSpecialization) {
+    return fetch(`${baseUrl}/skills/?specialization=${dataOfCurrentSpecialization}`, {
         method: 'GET',
         headers: {
             "Content-Type": "application/json",
@@ -36,62 +33,46 @@ export function getInitialSkillsUser() {
         })
 };
 
-export function addInitialSkillsUser(initialSkills) {
-    return fetch(`${baseUrl}/skills`, {
-        method: 'POST',
+export function getIdOfGoalLevelUser(goalLevel) {
+    return fetch(`${baseUrl}/levels/?name=Дизайнер&level_name=${goalLevel}`, {
+        method: 'GET',
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`,
         },
-        body: JSON.stringify({
-            skills: initialSkills.id,
-            status: "end"
-        }),
     })
         .then(res => {
             return getResponseData(res);
         })
 };
 
-export function addGoalLevelUser(goalLevel) {
-    return fetch(`${baseUrl}/user`, {
-        method: 'POST',
+export function getGoalSkillsUser(dataOfGoalSpecialization) {
+    return fetch(`${baseUrl}/skills/?specialization=${dataOfGoalSpecialization}`, {
+        method: 'GET',
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`,
         },
-        body: JSON.stringify({
-            level: goalLevel.level,
-        }),
     })
         .then(res => {
             return getResponseData(res);
         })
 };
 
-export function getGoalSkillsUser() {
-    return fetch(`${baseUrl}/skills`, {
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`,
-        },
-    })
-        .then(res => {
-            return getResponseData(res);
-        }) 
-};
-
-export function addGoalSkillsUser(goalSkills) {
-    return fetch(`${baseUrl}/skills`, {
+export function createNewUser(dataOfUser) {
+    return fetch(`${baseUrl}/profile`, {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`,
         },
         body: JSON.stringify({
-            skills: goalSkills.skills,
-            status: "start" 
+            current_specialization: dataOfUser.currentSpecialization,
+            skills: {
+                done: dataOfUser.done,
+                start: dataOfUser.start,
+            },
+            goal_specialization: dataOfUser.goalSpecialization
         }),
     })
         .then(res => {

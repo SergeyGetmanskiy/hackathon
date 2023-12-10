@@ -5,7 +5,6 @@ import skillsReducer from '../features/skills/skillsSlice'
 import stepperReducer from '../components/Onboarding/Header/HeaderStepper/stepperSlice';
 
 
-
 const store = configureStore({
   reducer: {
     onboarding: onboardingReducer,
@@ -13,7 +12,5 @@ const store = configureStore({
     stepper: stepperReducer,
   },
 })
-
-console.log(store);
 
 export default store
