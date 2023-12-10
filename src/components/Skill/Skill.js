@@ -36,7 +36,7 @@ export default function Skill() {
 
   const handleChange = (e, resourceId, skillId) => {
     const isChecked = e.target.checked;
-    const action = isChecked ? 
+    const action = !isChecked ? 
       {
       add: [],
       rm: [resourceId],
@@ -49,23 +49,31 @@ export default function Skill() {
     api.toggleLearningStatus(action)
         .then((res) => {
           console.log(res);
+          const payload = {
+            resourceId,
+            skillId,
+           }
+          dispatch(learningStatusToggled(payload))
+          console.log(payload) 
         } )
     
         .catch((err) => {
           console.log(err);
         })
-
- /*   const payload = {
-      resourceId,
-      skillId,
-     }
-    dispatch(learningStatusToggled(payload))
-    console.log(payload) */
   }
 
-  const handleDelete = (e) => {
-    navigate(-1);
-    dispatch(skillDeleted(skill.skillId));
+  const handleDelete = (e, id) => {
+    console.log(id);
+    api.deleteUserSkill(id)
+        .then((res) => {
+          console.log(res);
+        } )
+    
+        .catch((err) => {
+          console.log(err);
+        })
+  /*  navigate(-1);
+    dispatch(skillDeleted(skill.skillId)); */
   }
 
   const goBack = (id) => {
@@ -155,7 +163,7 @@ export default function Skill() {
         }}>
           <Typography variant='body3-regular'>{skill.status}</Typography>
         </Box>
-        <Button onClick={handleDelete} sx={{ position: 'absolute', zIndex: 2,  minWidth: '20px', bottom: '-40px', left: '20px', color: 'black.black500' }}>
+        <Button onClick={(e) => handleDelete(e, skill.userSkillId)} sx={{ position: 'absolute', zIndex: 2,  minWidth: '20px', bottom: '-40px', left: '20px', color: 'black.black500' }}>
           <DeleteOutlineIcon sx={{ height: '20px',  }} />
         </Button>
       </Box>

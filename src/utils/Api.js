@@ -5,6 +5,7 @@ class Api {
   
     _checkServerResponse(res) {
       if(res.ok) {
+        console.log(res);
         return res.json();
         } else {
           return res.text().then(text => { throw new Error(text) })
@@ -33,63 +34,6 @@ class Api {
       })
       .then(this._checkServerResponse)
     };
-  
-    checkToken(token) {
-      return fetch(`${this._url}/users/me`, {
-        method: 'GET',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-        }
-      })
-      .then(this._checkServerResponse);
-    };
-  
-    getUserInfo() {
-      return fetch(`${this._url}/users/me`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${this._getToken()}`,
-        },
-      })
-      .then(this._checkServerResponse)
-    }
-  
-    setUserInfo(data) {
-      return fetch(`${this._url}/users/me`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${this._getToken()}`,
-        },
-        body: JSON.stringify({
-          name: data.name,
-          email: data.email,
-      })})
-      .then(this._checkServerResponse)}
-  
-    getMoviesList() {
-      return fetch(`${this._url}/movies`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${this._getToken()}`,
-        },
-      })
-      .then(this._checkServerResponse)}
-  
-    deleteUserMovie(movieId) {
-      return fetch(`${this._url}/movies/${movieId}`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${this._getToken()}`,
-        },
-        })
-      .then(this._checkServerResponse)
-    }
   
     getUserSkills(page) {
       return fetch(`${this._url}/userskills/?page=${page}`, {
@@ -139,6 +83,7 @@ class Api {
     }
 
     toggleLearningStatus(action) {
+      console.log(action)
       return fetch(`${this._url}/userresources/`, {
         method: 'POST',
         headers: {
@@ -146,6 +91,18 @@ class Api {
           'Authorization': `Bearer ${this._getToken()}`,
         },
         body: JSON.stringify(action)})
+      .then(this._checkServerResponse)
+    }
+
+    deleteUserSkill(id) {
+      console.log(id);
+      return fetch(`${this._url}/short-userskills/${id}/`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this._getToken()}`,
+        },
+      })
       .then(this._checkServerResponse)
     }
 
