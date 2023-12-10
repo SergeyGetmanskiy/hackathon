@@ -80,29 +80,6 @@ class Api {
       })
       .then(this._checkServerResponse)}
   
-    postUserMovie(data) {
-      return fetch(`${this._url}/movies`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${this._getToken()}`,
-        },
-        body: JSON.stringify({
-          country: data.country,
-          director: data.director,
-          duration: data.duration,
-          year: data.year,
-          description: data.description,
-          image: data.image,
-          trailerLink: data.trailerLink,
-          thumbnail: data.thumbnail,
-          movieId: data.movieId,
-          nameRU: data.nameRU,
-          nameEN: data.nameEN,
-        })})
-      .then(this._checkServerResponse)
-    }
-  
     deleteUserMovie(movieId) {
       return fetch(`${this._url}/movies/${movieId}`, {
         method: 'DELETE',
@@ -133,6 +110,42 @@ class Api {
           'Authorization': `Bearer ${this._getToken()}`,
         },
       })
+      .then(this._checkServerResponse)
+    }
+
+    getDashboardData() {
+      return fetch(`${this._url}/dashboard/`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this._getToken()}`,
+        },
+      })
+      .then(this._checkServerResponse)
+    }
+
+    addNewSkill(skill, status) {
+      return fetch(`${this._url}/short-userskills/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this._getToken()}`,
+        },
+        body: JSON.stringify({
+          skill,
+          status,
+        })})
+      .then(this._checkServerResponse)
+    }
+
+    toggleLearningStatus(action) {
+      return fetch(`${this._url}/userresources/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this._getToken()}`,
+        },
+        body: JSON.stringify(action)})
       .then(this._checkServerResponse)
     }
 

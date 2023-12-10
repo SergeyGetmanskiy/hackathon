@@ -28,8 +28,11 @@ function App() {
 
   useEffect(() => {
     const jwt = localStorage.getItem('jwt');
-    if (!jwt) {
-      return
+    if (jwt) {
+      setLoggedIn(true);
+      if (!isOnboardingComplete) {
+        navigate('/onboarding', { replace: true })
+      }
     } else {
       api.login('admin', 'adminpassword')
         .then((res) => {
@@ -54,7 +57,6 @@ function App() {
           console.log(res);
           if (res.next === null) {
             userSkills = userSkills.concat(convertUserSkillsData(res));
-            console.log(userSkills)
             return dispatch(initialSkillsAdded(userSkills));
           } else {
             userSkills = userSkills.concat(convertUserSkillsData(res));
