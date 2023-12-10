@@ -124,9 +124,52 @@ const theme = createTheme({
         root: {
           textTransform: 'none',
         },
+
       },
+      variants: [
+        {
+          props: { variant: 'buttonNextStep' },
+          style: {
+            width: '183px',
+            padding: '15px 0',
+            fontSize: '16px',
+            fontWeight: '500',
+            lineHeight: '20px',
+            textAlign: 'center',
+            color: '#fff',
+            backgroundColor: '#5A9BFF',
+            borderRadius: '6px',
+            borderColor: '#5A9BFF',
+            bgcolor: '#5A9BFF',
+          },
+        },
+        {
+          props: { variant: 'buttonBackStep' },
+          style: {
+            width: '183px',
+            padding: '15px 0',
+            fontSize: '16px',
+            fontWeight: '500',
+            lineHeight: '20px',
+            textAlign: 'center',
+            color: '#fff',
+            backgroundColor: '#fff',
+            borderRadius: '6px',
+            color: '#1D6BF3',
+            border: 'solid 1px #1D6BF3',
+            bgcolor: '#fff',
+          }
+        },
+      ]
     },
     MuiPaper: {
+      styleOverrides: {
+        root: {
+          '&.MuiPaper-active': {
+            border: 'solid 10px #000',
+          },
+        },
+      },
       variants: [
         {
           props: { variant: 'buttonSelectLevel' },
@@ -400,6 +443,18 @@ const theme = createTheme({
             fontWeight: 500,
             fontSize: 8,
             lineHeight: 10 / 8,
+          },
+        },
+        {
+          props: { variant: 'titleOnboarding' },
+          style: {
+            paddingTop: '12px',
+            fontFamily: 'YS Text',
+            fontWeight: '500',
+            fontSize: '18px',
+            lineHeight: '24px',
+            textAlign: 'center',
+            color: '#1A1B22',
           },
         },
       ],
