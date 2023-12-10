@@ -166,7 +166,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           '&.MuiPaper-active': {
-            border: 'solid 10px #000',
+            backgroundColor: 'rgba(90, 155, 255, 1)',
           },
         },
       },

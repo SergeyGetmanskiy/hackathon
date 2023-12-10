@@ -26,8 +26,6 @@ function App() {
   const [checkedCurrentSkills, setCheckedCurrentSkills] = useState([]);
   const [checkedGoalSkills, setCheckedGoalSkills] = useState([]);
 
-  console.log(checkedCurrentSkills)
-
   const isOnboardingComplete = useSelector(state => state.onboarding)
 
   const navigate = useNavigate();
@@ -62,7 +60,6 @@ function App() {
     function getPaginatedData() {
       api.getUserSkills(page)
         .then((res) => {
-          console.log(res);
           if (res.next === null) {
             userSkills = userSkills.concat(convertUserSkillsData(res));
             return dispatch(initialSkillsAdded(userSkills));
