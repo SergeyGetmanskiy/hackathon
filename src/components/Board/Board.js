@@ -29,7 +29,7 @@ export default function Board() {
           <Card sx={{ display: 'flex', flexDirection: 'column', bgcolor: 'grey.main' }} elevation={0}>
             <Box sx={{ alignSelf: 'end' }}>
               <Button variant="contained" size='large' onClick={() => navigate('../add-skill')}>
-                <Typography variant='body2-medium' sx={{ textTransform: 'none', color: 'white' }}>+ &nbsp;&nbsp; Добавить навык</Typography>
+                <Typography variant='body2-medium' sx={{ textTransform: 'none', color: 'white.main' }}>+ &nbsp;&nbsp; Добавить навык</Typography>
               </Button>
             </Box>
             <Typography variant='body2-medium'>{skillGroupName}</Typography>
