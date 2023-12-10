@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
 
-import { setSkill } from "../../../features/skills/skillSlice";
+import { skillClicked } from "../../../features/skills/skillsSlice";
 import paperClip from '../../../images/Board/paperclip.svg'
 
 export default function Column({ columnTitle, cards }) {
@@ -23,8 +23,8 @@ export default function Column({ columnTitle, cards }) {
     return (Math.round((completedResources / totalResources) * 100))
   }
 
-  const handleClick = (card) => {
-    dispatch(setSkill(card));
+  const handleClick = (id) => {
+    dispatch(skillClicked(id));
     navigate('../skill');
   }
 
@@ -37,7 +37,7 @@ export default function Column({ columnTitle, cards }) {
         {cards.map((card, index) => (
           <Card key={card.skillId} sx={{position: 'relative' }}>
             <CardActionArea
-              onClick={() => handleClick(card)}
+              onClick={() => handleClick(card.skillId)}
               sx={{ display: 'flex', flexDirection: 'column', alignItems: 'start', gap: '10px', p: '20px' }}>
               <Typography variant='body3-regular'>{card.title}</Typography>
               <Typography variant='body4-regular'>{card.descriptionShort}</Typography>
