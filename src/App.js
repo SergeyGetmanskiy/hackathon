@@ -20,6 +20,7 @@ import { getIdOfLevelUser } from './utils/onboarding';
 function App() {
 
   const [loggedIn, setLoggedIn] = useState(false);
+  const [userSkillsLoaded, setUserSkillsLoaded] = useState(false);
 
   const [currentSpecialization, setCurrentSpecialization] = useState({});
   const [goalSpecialization, setGoalSpecialization] = useState({});
@@ -78,7 +79,7 @@ function App() {
 
   if (loggedIn) {
     return (
-      isOnboardingComplete ?
+      (isOnboardingComplete) ?
         <Routes>
           <Route path='/' element={<Main />}>
             <Route path='skills' element={<TabsPanel />} />

@@ -1,9 +1,7 @@
-import {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { Box, Button, Divider, Link, Typography, SvgIcon } from '@mui/material';
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
@@ -14,7 +12,6 @@ import { arrowBack } from '../../constants/constants';
 import { logoSmall } from '../../constants/constants';
 import { externalLink } from '../../constants/constants';
 import { learningStatusToggled, skillClicked } from '../../features/skills/skillsSlice';
-import { skillDeleted } from '../../features/skills/skillsSlice';
 
 export default function Skill() {
 
@@ -60,20 +57,6 @@ export default function Skill() {
         .catch((err) => {
           console.log(err);
         })
-  }
-
-  const handleDelete = (e, id) => {
-    console.log(id);
-    api.deleteUserSkill(id)
-        .then((res) => {
-          console.log(res);
-        } )
-    
-        .catch((err) => {
-          console.log(err);
-        })
-  /*  navigate(-1);
-    dispatch(skillDeleted(skill.skillId)); */
   }
 
   const goBack = (id) => {
@@ -125,10 +108,17 @@ export default function Skill() {
                       }
                     />
                   } 
-                label={<Typography variant='body2-regular'>{resource.title}</Typography>} />
-              <Typography variant='body3-regular' sx={{ color: 'black.black500', ml: '30px' }}>
-                {`Статья на ${resource.source} — ${resource.duration} минут`}
-              </Typography>
+                label={<Typography variant='body2-regular' sx={{ textDecoration: `${ resource.completed ? 'line-through' : 'none' }` }}>{resource.title}</Typography>} />
+              <Box sx={{ display: 'flex', flexDirection: 'row', gap: '10px', alignItems: 'end',  }}>
+                <Typography variant='body3-regular' sx={{ color: 'black.black500', ml: '30px', textDecoration: `${ resource.completed ? 'line-through' : 'none' }` }}>
+                  {`Статья на ${resource.source} — ${resource.duration} минут`}
+                </Typography>
+                <Link
+                    href={`${resource.source}`}
+                    target='_blank' 
+                    sx={{ display: 'flex', alignItems: 'end' }} 
+                    children={<img src={externalLink} alt='логотип' style={{ height: '12px' }} />} />
+              </Box>
             </FormGroup>
           ))}
         </Box>
@@ -163,9 +153,6 @@ export default function Skill() {
         }}>
           <Typography variant='body3-regular'>{skill.status}</Typography>
         </Box>
-        <Button onClick={(e) => handleDelete(e, skill.userSkillId)} sx={{ position: 'absolute', zIndex: 2,  minWidth: '20px', bottom: '-40px', left: '20px', color: 'black.black500' }}>
-          <DeleteOutlineIcon sx={{ height: '20px',  }} />
-        </Button>
       </Box>
     </Box>
   );}
