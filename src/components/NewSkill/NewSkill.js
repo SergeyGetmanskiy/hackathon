@@ -15,7 +15,6 @@ import { skillAdded } from '../../features/skills/skillsSlice';
 export default function NewSkill() {
 
   const skillsDB = useSelector(state => state.newSkills);
-  console.log(skillsDB);
 
   const [skillsLoaded, setSkillsLoaded] = useState(false);
   const [isSubmitBtnActive, setIsSubmitBtnActive] = useState(false);
@@ -48,7 +47,6 @@ export default function NewSkill() {
     const { skillId } = newSkill;
     api.addNewSkill(skillId, 'start')
       .then((res) => {
-        console.log(res);
         dispatch(skillAdded(newSkill));
         navigate('../skills');
       })
@@ -63,7 +61,6 @@ export default function NewSkill() {
     function getPaginatedData() {
       api.getNewSkills(page)
         .then((res) => {
-          console.log(res);
           if (res.next === null) {
             newSkills = newSkills.concat(convertNewSkillsData(res));
             return dispatch(initialNewSkillsAdded(newSkills));

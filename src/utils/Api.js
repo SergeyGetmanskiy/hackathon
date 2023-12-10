@@ -82,7 +82,6 @@ class Api {
     }
 
     toggleLearningStatus(action) {
-      console.log(action)
       return fetch(`${this._url}/userresources/`, {
         method: 'POST',
         headers: {
@@ -94,7 +93,6 @@ class Api {
     }
 
     deleteUserSkill(id) {
-      console.log(id);
       return fetch(`${this._url}/short-userskills/${id}/`, {
         method: 'DELETE',
         headers: {

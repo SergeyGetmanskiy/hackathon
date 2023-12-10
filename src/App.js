@@ -15,12 +15,10 @@ import Header from './components/Onboarding/Header/Header';
 import WelcomePage from './components/Onboarding/WelcomePage';
 import Level from './components/Onboarding/Level';
 import Skills from './components/Onboarding/Skills';
-import { getIdOfLevelUser } from './utils/onboarding';
 
 function App() {
 
   const [loggedIn, setLoggedIn] = useState(false);
-  const [userSkillsLoaded, setUserSkillsLoaded] = useState(false);
 
   const [currentSpecialization, setCurrentSpecialization] = useState({});
   const [goalSpecialization, setGoalSpecialization] = useState({});
@@ -33,7 +31,7 @@ function App() {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  useEffect(() => {                                         // Проверка JWT токена
     const jwt = localStorage.getItem('jwt');
     if (jwt) {
       setLoggedIn(true);

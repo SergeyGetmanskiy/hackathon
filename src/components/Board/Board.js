@@ -12,7 +12,6 @@ export default function Board() {
 
   const skillGroupName = useSelector(state => state.skillsGroup);
   const skills = useSelector(state => state.skills).filter((skill) => skill.groupName === skillGroupName);
-  console.log(skills);
 
   const skillsToLearn = skills.filter((skill) => skill.resources.every((resource) => !resource.completed));
   const skillsInProgress = skills.filter((skill) => 

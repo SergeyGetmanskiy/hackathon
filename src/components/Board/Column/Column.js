@@ -36,9 +36,8 @@ export default function Column({ columnTitle, cards }) {
     console.log(id);
     api.deleteUserSkill(id)
         .then((res) => {
-          console.log(res);
-      /*  navigate(-1);
-          dispatch(skillDeleted(skill.skillId)); */
+          navigate(-1);
+          dispatch(skillDeleted(id)); 
         } )
     
         .catch((err) => {
@@ -54,7 +53,7 @@ export default function Column({ columnTitle, cards }) {
       <List sx={{ display: 'flex', flexDirection: 'column', gap: '20px', p: 0 }}>
         {cards.map((card, index) => (
           <Card key={card.skillId} sx={{position: 'relative', borderRadius: '12px' }}>
-            <Button onClick={handleDelete} sx={{ position: 'absolute', zIndex: 2,  minWidth: '10px', top: '2px', right: '2px', color: 'black.black300' }}>
+            <Button onClick={(e) => handleDelete(e, card.skillId)} sx={{ position: 'absolute', zIndex: 2,  minWidth: '10px', top: '2px', right: '2px', color: 'black.black300' }}>
               <DeleteOutlineIcon sx={{ height: '14px',   }} />
             </Button>
             <CardActionArea

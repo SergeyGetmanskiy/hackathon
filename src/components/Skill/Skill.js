@@ -45,13 +45,11 @@ export default function Skill() {
     }
     api.toggleLearningStatus(action)
         .then((res) => {
-          console.log(res);
           const payload = {
             resourceId,
             skillId,
            }
           dispatch(learningStatusToggled(payload))
-          console.log(payload) 
         } )
     
         .catch((err) => {
