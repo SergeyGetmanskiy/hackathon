@@ -23,11 +23,10 @@ function Level({ setCurrentSpecialization, setGoalSpecialization }) {
     const yourLevelPage = (location.pathname === '/onboarding/user-level');
 
     const [valueButton, setValueButton] = useState('');
-
-    const [buttonActive, setButtonActive] = useState(false);
+    const [active, setActive] = useState();
 
     function handleValueButton(evt) {
-        console.log(evt)
+        evt.target.classList.add('MuiPaper-active');
         const level = evt.target.value;
         setValueButton(level.toLowerCase().slice(0, 3));
     };

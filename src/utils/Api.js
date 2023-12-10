@@ -5,7 +5,6 @@ class Api {
   
     _checkServerResponse(res) {
       if(res.ok) {
-        console.log(res);
         return res.json();
         } else {
           return res.text().then(text => { throw new Error(text) })

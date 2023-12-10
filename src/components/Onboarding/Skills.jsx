@@ -26,7 +26,7 @@ function Skills({ currentSpecialization, goalSpecialization, setCheckedCurrentSk
     const [skills, setSkills] = useState([]);
 
     useEffect(() => {
-        if (yourSkillsPage&&currentSpecialization) {
+        if (yourSkillsPage && currentSpecialization) {
             getInitialSkillsUser(currentSpecialization)
                 .then(res => {
                     setSkills(res.results)
@@ -87,7 +87,7 @@ function Skills({ currentSpecialization, goalSpecialization, setCheckedCurrentSk
             alignItems: 'center',
         }}>
             <Typography variant='titleOnboarding' component='h1'>{yourSkillsPage ? 'Давай определим то, что ты уже знаешь.' : 'Выбери навыки которых тебе не хватает и ты хотел бы их прокачать'}</Typography>
-            <Grid container rowGap='20px' columnGap='20px' component='form' sx={{ width: '796px', p: '52px 0 0 0' }}>
+            <Grid container rowGap='20px' columnGap='20px' id="formSkills" component='form' sx={{ width: '796px', p: '52px 0 0 0' }}>
                 {skills.map((skill, index) => {
                     return <Paper key={index} value={skill} type='button' variant='buttonSelectSkill' component='button'>{skill.name}<Checkbox onClick={(evt) => { handleSelectedSkills(evt, skill) }} checkedIcon={<SvgIcon fontSize="small" >{
                         <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -100,11 +100,12 @@ function Skills({ currentSpecialization, goalSpecialization, setCheckedCurrentSk
                         </svg>
                     }</SvgIcon>} sx={{ width: '19px', height: '19px' }} /></Paper>
                 })}
-                <Stack direction='row' spacing='20px' sx={{ p: '132px 0 0 0', m: '0 auto' }}>
-                    <Button variant='buttonBackStep' onClick={handleClickBackButton}>Назад</Button>
-                    <Button variant='buttonNextStep' onClick={(evt) => handleClickNextButton(evt)}>Далее</Button>
-                </Stack>
             </Grid>
+
+            <Stack direction='row' spacing='20px' sx={{ p: '132px 0 0 0', m: '0 auto' }}>
+                <Button variant='buttonBackStep' onClick={handleClickBackButton}>Назад</Button>
+                <Button variant='buttonNextStep' from='formSkills'  onClick={(evt) => handleClickNextButton(evt)}>Далее</Button>
+            </Stack>
         </Container>
     );
 };

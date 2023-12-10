@@ -1,6 +1,6 @@
 const baseUrl = 'http://62.84.123.59/api/v1';
 
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA4MjM1ODY5LCJpYXQiOjE3MDIyMzU4NjksImp0aSI6ImVjNGM2MTEyYmFmNDRjZGQ5ODgyYzhlYjA5NzZmODU2IiwidXNlcl9pZCI6MX0.gSwQjS8Tnx4QSTp4Odyu5_mFntnumOsjFAeMOuNyM0A';
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA4MjQwMTA1LCJpYXQiOjE3MDIyNDAxMDUsImp0aSI6IjIzMTEyNDBlNjJlYTQ3YzY5NzYxMDJhODI2MDEyM2EwIiwidXNlcl9pZCI6MX0.4PerCrhPQCdJWct5AHg9-7IjVLMKec5FvESaMqZeQJM';
 
 
 function getResponseData(res) {
@@ -60,7 +60,7 @@ export function getGoalSkillsUser(dataOfGoalSpecialization) {
 };
 
 export function createNewUser(dataOfUser) {
-    return fetch(`${baseUrl}/profile`, {
+    return fetch(`${baseUrl}/profile/`, {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
