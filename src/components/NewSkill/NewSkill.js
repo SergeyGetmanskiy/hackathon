@@ -147,10 +147,10 @@ export default function NewSkill() {
               px: '20px',
               '&:disabled': {
                 bgcolor: `${isSubmitBtnActive ? 'blue' : 'black.black300'}`,
-                color: 'white',  
+                color: 'white.main',  
               },
               '&:enabled': {
-                color: 'white',  
+                color: 'white.main',  
               },              
             }}
             disabled={isSubmitBtnActive ? false : true}
