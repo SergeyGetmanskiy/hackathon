@@ -4,6 +4,7 @@ export function convertUserSkillsData(serverResponse) {
       groupId: item.skill.group.id,
       groupName: item.skill.group.name,
       skillId: item.skill.id,
+      userSkillId: item.userskill_id,
       clicked: false,
       title: item.skill.name,
       shortTitle: item.skill.group.name,
