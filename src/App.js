@@ -66,7 +66,6 @@ function App() {
           console.log(res);
           if (res.next === null) {
             userSkills = userSkills.concat(convertUserSkillsData(res));
-            setUserSkillsLoaded(true);
             return dispatch(initialSkillsAdded(userSkills));
           } else {
             userSkills = userSkills.concat(convertUserSkillsData(res));
@@ -83,7 +82,7 @@ function App() {
 
   if (loggedIn) {
     return (
-      (isOnboardingComplete && userSkillsLoaded) ?
+      (isOnboardingComplete) ?
         <Routes>
           <Route path='/' element={<Main />}>
             <Route path='skills' element={<TabsPanel />} />

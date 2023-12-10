@@ -51,7 +51,7 @@ function Skills({ currentSpecialization, goalSpecialization, setCheckedCurrentSk
             dispatch(nextStep());
             navigate('/onboarding/goal-level');
         } else {
-            handleSubmit(evt);
+        //  handleSubmit(evt);
             dispatch(toggle(true));
             loadUserSkills();
             navigate('/');

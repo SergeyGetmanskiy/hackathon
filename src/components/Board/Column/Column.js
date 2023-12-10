@@ -1,5 +1,5 @@
 import { Box, List, Card, Typography, CardActionArea, Button } from "@mui/material"
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import DeleteOutlineIcon from '@mui/icons-material/MoreHoriz';
 import ProgressBar from "../ProgressBar/ProgressBar";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -10,7 +10,6 @@ import { skillClicked } from "../../../features/skills/skillsSlice";
 import { skillDeleted } from "../../../features/skills/skillsSlice";
 
 import paperClip from '../../../images/Board/paperclip.svg'
-import threeDots from '../../../images/Board/Action.svg'
 
 export default function Column({ columnTitle, cards }) {
 
@@ -38,13 +37,13 @@ export default function Column({ columnTitle, cards }) {
     api.deleteUserSkill(id)
         .then((res) => {
           console.log(res);
+      /*  navigate(-1);
+          dispatch(skillDeleted(skill.skillId)); */
         } )
     
         .catch((err) => {
           console.log(err);
         })
-  /*  navigate(-1);
-    dispatch(skillDeleted(skill.skillId)); */
   }
 
   return (
@@ -54,9 +53,9 @@ export default function Column({ columnTitle, cards }) {
       </Box>
       <List sx={{ display: 'flex', flexDirection: 'column', gap: '20px', p: 0 }}>
         {cards.map((card, index) => (
-          <Card key={card.skillId} sx={{position: 'relative' }}>
-            <Button onClick={(e) => handleDelete(e, card.userSkillId)} sx={{ position: 'absolute', minWidth: '20px', bottom: '-100px', left: '20px' }}>
-              <MoreHorizIcon color="black.main" sx={{ color: 'black.main' }}/>
+          <Card key={card.skillId} sx={{position: 'relative', borderRadius: '12px' }}>
+            <Button onClick={handleDelete} sx={{ position: 'absolute', zIndex: 2,  minWidth: '10px', top: '2px', right: '2px', color: 'black.black300' }}>
+              <DeleteOutlineIcon sx={{ height: '14px',   }} />
             </Button>
             <CardActionArea
               onClick={() => handleClick(card.skillId)}

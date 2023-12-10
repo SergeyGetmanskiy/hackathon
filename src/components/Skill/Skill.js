@@ -108,10 +108,17 @@ export default function Skill() {
                       }
                     />
                   } 
-                label={<Typography variant='body2-regular'>{resource.title}</Typography>} />
-              <Typography variant='body3-regular' sx={{ color: 'black.black500', ml: '30px' }}>
-                {`Статья на ${resource.source} — ${resource.duration} минут`}
-              </Typography>
+                label={<Typography variant='body2-regular' sx={{ textDecoration: `${ resource.completed ? 'line-through' : 'none' }` }}>{resource.title}</Typography>} />
+              <Box sx={{ display: 'flex', flexDirection: 'row', gap: '10px', alignItems: 'end',  }}>
+                <Typography variant='body3-regular' sx={{ color: 'black.black500', ml: '30px', textDecoration: `${ resource.completed ? 'line-through' : 'none' }` }}>
+                  {`Статья на ${resource.source} — ${resource.duration} минут`}
+                </Typography>
+                <Link
+                    href={`${resource.source}`}
+                    target='_blank' 
+                    sx={{ display: 'flex', alignItems: 'end' }} 
+                    children={<img src={externalLink} alt='логотип' style={{ height: '12px' }} />} />
+              </Box>
             </FormGroup>
           ))}
         </Box>
