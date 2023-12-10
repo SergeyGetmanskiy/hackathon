@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8a685450.css",
+    "main.js": "/static/js/main.7cd2b93d.js",
+    "static/media/image 36.svg": "/static/media/image 36.dabcf38ab8078089ca7302c35d47881a.svg",
+    "static/media/YS Text-Medium.ttf": "/static/media/YS Text-Medium.2d47de47defd5b598825.ttf",
+    "static/media/YS Text-Regular.ttf": "/static/media/YS Text-Regular.14023e8db570f7ed0882.ttf",
+    "static/media/YS Display-Medium.ttf": "/static/media/YS Display-Medium.cdde6f3702a91cdce0b1.ttf",
+    "static/media/YS Display-Regular.ttf": "/static/media/YS Display-Regular.081ac288ac31c1a0a096.ttf",
+    "static/media/progress.png": "/static/media/progress.8147138b2c45ed84338d.png",
+    "static/media/logo-achievments.svg": "/static/media/logo-achievments.e4b67a31e2c5bef617231092884c8921.svg",
+    "static/media/external-link-alt 1.svg": "/static/media/external-link-alt 1.7542ae2ad01525451ec6395b26565966.svg",
+    "static/media/notification.svg": "/static/media/notification.0d54dc570b29e96c5f0a59bdcdfc5cd2.svg",
+    "static/media/graduation.svg": "/static/media/graduation.bcefa33c491e4509a4a3f203e25f0c8c.svg",
+    "static/media/library.svg": "/static/media/library.7ba775d54b288c163374a4e4325c7c81.svg",
+    "static/media/edit-2.svg": "/static/media/edit-2.130288da5d089f968181534b5211cf5c.svg",
+    "static/media/headphones 2.svg": "/static/media/headphones 2.e71f4162cd3135948b742299f69dead9.svg",
+    "static/media/dashboard.svg": "/static/media/dashboard.9eeedd93489d0616987df7a37fe400e7.svg",
+    "static/media/arrow_back.svg": "/static/media/arrow_back.0f461a49cde751bd38af8b9ef83f4ddd.svg",
+    "static/media/paperclip.svg": "/static/media/paperclip.61afe006fdabfdb84c6a5ec20403fc59.svg",
+    "static/media/briefcase.svg": "/static/media/briefcase.27afb514f9908ae20b6d54737f8c567d.svg",
+    "static/media/book-open.svg": "/static/media/book-open.e3ff656bca7f15432cc7b5469fbe8990.svg",
+    "static/media/skills.svg": "/static/media/skills.c6f0d81b7d96139c53865083355e913c.svg",
+    "static/media/logo 5.svg": "/static/media/logo 5.31208ab633125b8e7090ba070a11c430.svg",
+    "static/media/logo_small.svg": "/static/media/logo_small.892bb6afedb15d963a86e9a5f549b58a.svg",
+    "static/media/logo.svg": "/static/media/logo.567c7ed5a4a5b957e5cd679e52d2fd88.svg",
+    "static/media/board.svg": "/static/media/board.8318256d5bbd8d16172331ce74aaf19a.svg",
+    "static/media/home.svg": "/static/media/home.d1f394e572e553240351beb67d242f58.svg",
+    "index.html": "/index.html",
+    "static/media/arrow.svg": "/static/media/arrow.eb4e9f5125c48e6d3b78da8caf64370f.svg",
+    "main.8a685450.css.map": "/static/css/main.8a685450.css.map",
+    "main.7cd2b93d.js.map": "/static/js/main.7cd2b93d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8a685450.css",
+    "static/js/main.7cd2b93d.js"
+  ]
+}
