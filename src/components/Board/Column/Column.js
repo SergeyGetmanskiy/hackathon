@@ -1,13 +1,16 @@
 import { Box, List, Card, Typography, CardActionArea, Button } from "@mui/material"
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import ProgressBar from "../ProgressBar/ProgressBar"
-import { useNavigate } from "react-router-dom"
+import ProgressBar from "../ProgressBar/ProgressBar";
+import { useNavigate } from "react-router-dom";
 
+import { useDispatch } from "react-redux";
+
+import { skillClicked } from "../../../features/skills/skillsSlice";
 import paperClip from '../../../images/Board/paperclip.svg'
 
 export default function Column({ columnTitle, cards }) {
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const hasProgressBar = (card) => {
     return ((card.resources.some((resource) => resource.completed)) && 
@@ -20,9 +23,9 @@ export default function Column({ columnTitle, cards }) {
     return (Math.round((completedResources / totalResources) * 100))
   }
 
-  const handleDelete = (e) => {
-    
-    console.log(e);
+  const handleClick = (id) => {
+    dispatch(skillClicked(id));
+    navigate('../skill');
   }
 
   return (
@@ -33,11 +36,8 @@ export default function Column({ columnTitle, cards }) {
       <List sx={{ display: 'flex', flexDirection: 'column', gap: '20px', p: 0 }}>
         {cards.map((card, index) => (
           <Card key={card.skillId} sx={{position: 'relative' }}>
-            <Button onClick={handleDelete} sx={{ position: 'absolute', zIndex: 2,  minWidth: '10px', top: '2px', right: '2px', color: 'black.black500' }}>
-              <DeleteOutlineIcon sx={{ height: '14px',  }} />
-            </Button>
             <CardActionArea
-              onClick={() => navigate('../skill')}
+              onClick={() => handleClick(card.skillId)}
               sx={{ display: 'flex', flexDirection: 'column', alignItems: 'start', gap: '10px', p: '20px' }}>
               <Typography variant='body3-regular'>{card.title}</Typography>
               <Typography variant='body4-regular'>{card.descriptionShort}</Typography>

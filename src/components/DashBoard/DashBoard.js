@@ -22,19 +22,20 @@ export default function DashBoard() {
 
   const [ data, setData ] = useState(skillsForDashboard);
 
- /* useEffect(() => {                                      
 
-        api.getDataforDashboard()
+  useEffect(() => {                                      
+
+        api.getDashboardData()
         .then((res) => {
           setLoading(false);
           console.log(res);
-          setData(res);   
+       //   setData(res);   
           })
         .catch((err) => {
           console.log(err);
         })  
   }, []) 
-*/
+
   if (!loading) return (
     <Stack useFlexGap spacing={'20px'} direction={'row'} sx={{ backgroundColor: 'grey.main', p: '20px' }}>
       <Box width={610}>

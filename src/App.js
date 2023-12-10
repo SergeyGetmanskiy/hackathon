@@ -11,8 +11,6 @@ import TabsPanel from './components/Main/TabsPanel/TabsPanel';
 import NewSkill from './components/NewSkill/NewSkill';
 import Skill from './components/Skill/Skill';
 
-import { skillsDB } from './constants/constants';
-
 import Header from './components/Onboarding/Header/Header';
 import WelcomePage from './components/Onboarding/WelcomePage';
 import Level from './components/Onboarding/Level';
@@ -36,46 +34,50 @@ function App() {
 
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   const jwt = localStorage.getItem('jwt');
-  //   if (!jwt) {
-  //     return
-  //   } else {
-  //     api.login('admin', 'adminpassword')
-  //       .then((res) => {
-  //         setLoggedIn(true);
-  //         localStorage.setItem('jwt', res.access);
-  //         if (!isOnboardingComplete) {
-  //           navigate('/onboarding', { replace: true })
-  //         }
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       })
-  //   }
-  // }, [])
+  useEffect(() => {
+    const jwt = localStorage.getItem('jwt');
+    if (jwt) {
+      setLoggedIn(true);
+      if (!isOnboardingComplete) {
+        navigate('/onboarding', { replace: true })
+      }
+    } else {
+      api.login('admin', 'adminpassword')
+        .then((res) => {
+          setLoggedIn(true);
+          localStorage.setItem('jwt', res.access);
+          if (!isOnboardingComplete) {
+            navigate('/onboarding', { replace: true })
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    }
+  }, [])
 
-  // useEffect(() => {                             // получаем данные о навыках пользователя с сервера после прохождения Онбординга
-  //   let page = 1;
-  //   let userSkills = [];
-  //   function getPaginatedData() {
-  //     api.getUserSkills(page)
-  //       .then((res) => {
-  //         if (res.next !== null) {
-  //           userSkills = userSkills.concat(convertUserSkillsData(res));
-  //           page++;
-  //           getPaginatedData();
-  //         } else {
-  //           console.log(userSkills)
-  //           dispatch(initialSkillsAdded(userSkills));
-  //         }
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       })
-  //   }
-  //   getPaginatedData()
-  // }, [])
+  useEffect(() => {                             // получаем данные о навыках пользователя с сервера после прохождения Онбординга
+    let page = 1;
+    let userSkills = [];
+    function getPaginatedData() {
+      api.getUserSkills(page)
+        .then((res) => {
+          console.log(res);
+          if (res.next === null) {
+            userSkills = userSkills.concat(convertUserSkillsData(res));
+            return dispatch(initialSkillsAdded(userSkills));
+          } else {
+            userSkills = userSkills.concat(convertUserSkillsData(res));
+            page++;
+            getPaginatedData();
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    }
+    getPaginatedData()
+  }, [])
 
   if (loggedIn) {
     return (
